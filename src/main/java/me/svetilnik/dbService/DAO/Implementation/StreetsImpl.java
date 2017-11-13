@@ -1,5 +1,6 @@
 package me.svetilnik.dbService.DAO.Implementation;
 
+
 import me.svetilnik.dbService.DAO.interf.StreetsDAO;
 import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.StreetsEntity;
@@ -14,7 +15,7 @@ public class StreetsImpl implements StreetsDAO {
     private Session session = null;
 
     public StreetsImpl(){
-    session= HibernateUtil.getSessionFactory().openSession();
+    session = HibernateUtil.getSessionFactory().openSession();
     }
 
     @Override
@@ -26,7 +27,7 @@ public class StreetsImpl implements StreetsDAO {
 
     @Override
     public void saveObject(Object entity) {
-    throw new UnsupportedOperationException("Not supported yet.")
+    throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
