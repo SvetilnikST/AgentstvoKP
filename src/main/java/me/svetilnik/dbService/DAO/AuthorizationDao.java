@@ -26,7 +26,7 @@ public class AuthorizationDao {
         Criteria criteria;
 
         criteria = session.createCriteria(EmployeesEntity.class);
-        criteria.add(Restrictions.eq("EmployeesMail", login));
+        criteria.add(Restrictions.eq("employeesMail", login));
         criteria.add(Restrictions.eq("password", password));
 
         EmployeesEntity user = (EmployeesEntity) criteria.uniqueResult();
@@ -62,7 +62,7 @@ public class AuthorizationDao {
         Criteria criteria;
 
         criteria = session.createCriteria(EmployeesEntity.class);
-        criteria.add(Restrictions.eq("EmployeesMail", login));
+        criteria.add(Restrictions.eq("employeesMail", login));
 
         EmployeesEntity user = (EmployeesEntity) criteria.uniqueResult();
 

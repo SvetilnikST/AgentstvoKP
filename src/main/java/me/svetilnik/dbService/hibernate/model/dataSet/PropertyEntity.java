@@ -87,7 +87,7 @@ public class PropertyEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "ParamProperty", referencedColumnName = "idParamProperty", nullable = false)
+    @JoinColumn(name = "ParamProperty", referencedColumnName = "idParamProperty", nullable = false , insertable = false, updatable = false)
     public ParampropertyEntity getParampropertyByParamProperty() {
         return parampropertyByParamProperty;
     }
