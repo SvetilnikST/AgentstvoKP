@@ -35,7 +35,7 @@ public class ParampropertyEntity {
     }
 
     @Basic
-    @Column(name = "ParamPropertyLocation", nullable = false)
+    @Column(name = "ParamPropertyLocation", nullable = false, insertable = false, updatable = false)
     public int getParamPropertyLocation() {
         return paramPropertyLocation;
     }

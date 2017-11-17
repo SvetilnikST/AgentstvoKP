@@ -84,7 +84,7 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "Position", nullable = false)
+    @Column(name = "Position", nullable = false , insertable = false, updatable = false)
     public int getPosition() {
         return position;
     }

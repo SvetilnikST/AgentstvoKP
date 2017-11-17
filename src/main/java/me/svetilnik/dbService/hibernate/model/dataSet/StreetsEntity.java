@@ -50,7 +50,7 @@ public class StreetsEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "streetsByLocationStreet")
+    @OneToMany(mappedBy = "streetsByLocationStreet" )
     public Collection<LocationEntity> getLocationsByIdStreets() {
         return locationsByIdStreets;
     }

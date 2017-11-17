@@ -66,7 +66,7 @@ public class LocationEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "LocationStreet", referencedColumnName = "idStreets", nullable = false)
+    @JoinColumn(name = "LocationStreet", referencedColumnName = "idStreets", nullable = false , insertable = false, updatable = false)
     public StreetsEntity getStreetsByLocationStreet() {
         return streetsByLocationStreet;
     }

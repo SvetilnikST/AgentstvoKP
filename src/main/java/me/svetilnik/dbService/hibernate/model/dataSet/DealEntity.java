@@ -42,7 +42,7 @@ public class DealEntity {
     }
 
     @Basic
-    @Column(name = "DealClient1", nullable = false)
+    @Column(name = "DealClient1", nullable = false, insertable = false, updatable = false)
     public int getDealClient1() {
         return dealClient1;
     }
@@ -52,7 +52,7 @@ public class DealEntity {
     }
 
     @Basic
-    @Column(name = "DealClient2", nullable = false)
+    @Column(name = "DealClient2", nullable = false, insertable = false, updatable = false)
     public int getDealClient2() {
         return dealClient2;
     }
@@ -72,7 +72,7 @@ public class DealEntity {
     }
 
     @Basic
-    @Column(name = "DealProperty", nullable = false)
+    @Column(name = "DealProperty", nullable = false, insertable = false, updatable = false)
     public int getDealProperty() {
         return dealProperty;
     }
@@ -92,7 +92,7 @@ public class DealEntity {
     }
 
     @Basic
-    @Column(name = "DealEmployee", nullable = false)
+    @Column(name = "DealEmployee", nullable = false, insertable = false, updatable = false)
     public int getDealEmployee() {
         return dealEmployee;
     }
@@ -182,7 +182,7 @@ public class DealEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "DealView", referencedColumnName = "idViewDeal", nullable = false)
+    @JoinColumn(name = "DealView", referencedColumnName = "idViewDeal", nullable = false , insertable = false, updatable = false)
     public ViewdealEntity getViewdealByDealView() {
         return viewdealByDealView;
     }
