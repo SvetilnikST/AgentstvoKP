@@ -4,6 +4,10 @@ public interface PageURL {
     String LOGIN_PAGE = "/login.jsp";
     String LOGIN_ACTION = "/WorkTaskController?action=login";
     String ERROR_PAGE = "/error.jsp";
+
+    String STREETS_PAGE = "/list_streets.jsp";
+    String POSITIONS_PAGE = "/list_positions.jsp";
+
     String DOWNLOAD = "/download?downloadfile=";
 
     String LIST_WORKTASK_ACTION = "/WorkTaskController?action=list_worktasks";

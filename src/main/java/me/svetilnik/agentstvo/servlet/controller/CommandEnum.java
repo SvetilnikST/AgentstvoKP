@@ -1,11 +1,20 @@
 package me.svetilnik.agentstvo.servlet.controller;
 
 import me.svetilnik.agentstvo.servlet.controller.command.LoginCommand;
+import me.svetilnik.agentstvo.servlet.controller.command.PositionsCommand;
+import me.svetilnik.agentstvo.servlet.controller.command.StreetsCommand;
 
 public enum  CommandEnum {
     LOGIN {{
         this.command = new LoginCommand();
-    }};
+    }},
+    STREETS {{
+        this.command = new StreetsCommand();
+    }},
+    POSITIONS {{
+        this.command = new PositionsCommand();
+    }},
+
 //    LOGOUT {{
 //        this.command = new LogOutCommand();
 //    }},
@@ -13,7 +22,7 @@ public enum  CommandEnum {
 //        this.command = new EditWorkTaskCommand();
 //    }},
 //    LIST_WORKTASKS {{
-//        this.command = new ListWorktasksCommand();
+//        this.command = new ListDealCommand();
 //    }},
 //    LIST_USERS {{
 //        this.command = new ListUsersCommand();
@@ -68,7 +77,8 @@ public enum  CommandEnum {
 //    }},
 //    SAVE_USER {{
 //        this.command = new SaveUserCommand();
-//    }};
+//    }}
+    ;
 
     ActionCommand command;
 
