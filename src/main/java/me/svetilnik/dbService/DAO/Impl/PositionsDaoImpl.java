@@ -1,6 +1,6 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-import me.svetilnik.dbService.hibernate.HibernateUtil;
+//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.PositionsEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -12,7 +12,8 @@ import java.util.List;
 public class PositionsDaoImpl {
     private Session session = null;
     public PositionsDaoImpl(){
-        session = HibernateUtil.getSessionFactory().openSession();
+//        session = HibernateUtil.getSessionFactory().openSession();
+        session = null;
     }
     public List<PositionsEntity> getAll(int offcet, int limit) throws IOException {
         Criteria criteria;

@@ -1,6 +1,6 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-import me.svetilnik.dbService.hibernate.HibernateUtil;
+//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.ParampropertyEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -13,7 +13,7 @@ public class ParamPropertyDaoImpl {
     private Session session = null;
 
     public ParamPropertyDaoImpl(){
-        session = HibernateUtil.getSessionFactory().openSession();
+        session = null;
     }
 
     public List<ParampropertyEntity> getAll(int offcet, int limit) throws IOException {

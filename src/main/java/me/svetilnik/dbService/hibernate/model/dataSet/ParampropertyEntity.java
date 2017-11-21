@@ -4,30 +4,36 @@ import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "paramproperty", schema = "agentstvo")
 public class ParampropertyEntity extends Model {
-    private int idParamProperty;
-    private int paramPropertyArea;
-    private int paramPropertyLocation;
-    private int paramPropertyFloor;
-    private String paramPropertyDescription;
-    private LocationEntity locationByParamPropertyLocation;
-    private Collection<PropertyEntity> propertiesByIdParamProperty;
 
     @Id
+    @GeneratedValue
     @Column(name = "idParamProperty", nullable = false)
-    public int getIdParamProperty() {
+    private long idParamProperty;
+
+    @Column(name = "ParamPropertyArea", nullable = false)
+    private int paramPropertyArea;
+
+//    private int paramPropertyLocation;
+
+    @Column(name = "ParamPropertyFloor", nullable = false)
+    private int paramPropertyFloor;
+
+    @Column(name = "ParamPropertyDescription", nullable = false, length = 200)
+    private String paramPropertyDescription;
+
+    public long getIdParamProperty() {
         return idParamProperty;
     }
 
-    public void setIdParamProperty(int idParamProperty) {
+    public void setIdParamProperty(long idParamProperty) {
         this.idParamProperty = idParamProperty;
     }
 
-    @Basic
-    @Column(name = "ParamPropertyArea", nullable = false)
     public int getParamPropertyArea() {
         return paramPropertyArea;
     }
@@ -36,18 +42,7 @@ public class ParampropertyEntity extends Model {
         this.paramPropertyArea = paramPropertyArea;
     }
 
-    @Basic
-    @Column(name = "ParamPropertyLocation", nullable = false, insertable = false, updatable = false)
-    public int getParamPropertyLocation() {
-        return paramPropertyLocation;
-    }
 
-    public void setParamPropertyLocation(int paramPropertyLocation) {
-        this.paramPropertyLocation = paramPropertyLocation;
-    }
-
-    @Basic
-    @Column(name = "ParamPropertyFloor", nullable = false)
     public int getParamPropertyFloor() {
         return paramPropertyFloor;
     }
@@ -56,8 +51,6 @@ public class ParampropertyEntity extends Model {
         this.paramPropertyFloor = paramPropertyFloor;
     }
 
-    @Basic
-    @Column(name = "ParamPropertyDescription", nullable = false, length = 200)
     public String getParamPropertyDescription() {
         return paramPropertyDescription;
     }
@@ -66,49 +59,74 @@ public class ParampropertyEntity extends Model {
         this.paramPropertyDescription = paramPropertyDescription;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        ParampropertyEntity that = (ParampropertyEntity) o;
+//
+//        if (idParamProperty != that.idParamProperty) return false;
+//        if (paramPropertyArea != that.paramPropertyArea) return false;
+//        if (paramPropertyLocation != that.paramPropertyLocation) return false;
+//        if (paramPropertyFloor != that.paramPropertyFloor) return false;
+//        if (paramPropertyDescription != null ? !paramPropertyDescription.equals(that.paramPropertyDescription) : that.paramPropertyDescription != null)
+//            return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = idParamProperty;
+//        result = 31 * result + paramPropertyArea;
+//        result = 31 * result + paramPropertyLocation;
+//        result = 31 * result + paramPropertyFloor;
+//        result = 31 * result + (paramPropertyDescription != null ? paramPropertyDescription.hashCode() : 0);
+//        return result;
+//    }
 
-        ParampropertyEntity that = (ParampropertyEntity) o;
+//    @ManyToOne
+//    @JoinColumn(name = "ParamPropertyLocation", referencedColumnName = "idLocation", nullable = false)
+//    public LocationEntity getLocationByParamPropertyLocation() {
+//        return locationByParamPropertyLocation;
+//    }
+//
+//    public void setLocationByParamPropertyLocation(LocationEntity locationByParamPropertyLocation) {
+//        this.locationByParamPropertyLocation = locationByParamPropertyLocation;
+//    }
+//
+//    @OneToMany(mappedBy = "parampropertyByParamProperty")
+//    public Collection<PropertyEntity> getPropertiesByIdParamProperty() {
+//        return propertiesByIdParamProperty;
+//    }
+//
+//    public void setPropertiesByIdParamProperty(Collection<PropertyEntity> propertiesByIdParamProperty) {
+//        this.propertiesByIdParamProperty = propertiesByIdParamProperty;
+//    }
 
-        if (idParamProperty != that.idParamProperty) return false;
-        if (paramPropertyArea != that.paramPropertyArea) return false;
-        if (paramPropertyLocation != that.paramPropertyLocation) return false;
-        if (paramPropertyFloor != that.paramPropertyFloor) return false;
-        if (paramPropertyDescription != null ? !paramPropertyDescription.equals(that.paramPropertyDescription) : that.paramPropertyDescription != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idParamProperty;
-        result = 31 * result + paramPropertyArea;
-        result = 31 * result + paramPropertyLocation;
-        result = 31 * result + paramPropertyFloor;
-        result = 31 * result + (paramPropertyDescription != null ? paramPropertyDescription.hashCode() : 0);
-        return result;
-    }
 
     @ManyToOne
-    @JoinColumn(name = "ParamPropertyLocation", referencedColumnName = "idLocation", nullable = false)
-    public LocationEntity getLocationByParamPropertyLocation() {
-        return locationByParamPropertyLocation;
+    @JoinColumn(name = "ParamPropertyLocation")
+    private LocationEntity locationEntity;
+
+    public LocationEntity getLocationEntity() { return locationEntity; }
+
+    public void setLocationEntity(LocationEntity locationEntity){
+        this.locationEntity= locationEntity;
     }
 
-    public void setLocationByParamPropertyLocation(LocationEntity locationByParamPropertyLocation) {
-        this.locationByParamPropertyLocation = locationByParamPropertyLocation;
+    @OneToMany(mappedBy = "parampropertyEntity", cascade = CascadeType.ALL)
+    private Set<DealEntity> dealEntities;
+
+    public Set<DealEntity> getDealEntities() {
+        return dealEntities;
     }
 
-    @OneToMany(mappedBy = "parampropertyByParamProperty")
-    public Collection<PropertyEntity> getPropertiesByIdParamProperty() {
-        return propertiesByIdParamProperty;
+    public void setDealEntities(Set<DealEntity> dealEntities) {
+        this.dealEntities= dealEntities;
     }
 
-    public void setPropertiesByIdParamProperty(Collection<PropertyEntity> propertiesByIdParamProperty) {
-        this.propertiesByIdParamProperty = propertiesByIdParamProperty;
-    }
+
+
 }

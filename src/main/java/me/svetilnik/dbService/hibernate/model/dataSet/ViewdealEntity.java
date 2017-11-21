@@ -4,26 +4,27 @@ import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "viewdeal", schema = "agentstvo")
 public class ViewdealEntity extends Model {
-    private int idViewDeal;
-    private String viewDeal;
-    private Collection<DealEntity> dealsByIdViewDeal;
-
     @Id
+    @GeneratedValue
     @Column(name = "idViewDeal", nullable = false)
-    public int getIdViewDeal() {
+    private long idViewDeal;
+
+    @Column(name = "ViewDeal", nullable = false, length = 45)
+    private String viewDeal;
+
+    public long getIdViewDeal() {
         return idViewDeal;
     }
 
-    public void setIdViewDeal(int idViewDeal) {
+    public void setIdViewDeal(long idViewDeal) {
         this.idViewDeal = idViewDeal;
     }
 
-    @Basic
-    @Column(name = "ViewDeal", nullable = false, length = 45)
     public String getViewDeal() {
         return viewDeal;
     }
@@ -32,32 +33,45 @@ public class ViewdealEntity extends Model {
         this.viewDeal = viewDeal;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    //    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        ViewdealEntity that = (ViewdealEntity) o;
+//
+//        if (idViewDeal != that.idViewDeal) return false;
+//        if (viewDeal != null ? !viewDeal.equals(that.viewDeal) : that.viewDeal != null) return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = idViewDeal;
+//        result = 31 * result + (viewDeal != null ? viewDeal.hashCode() : 0);
+//        return result;
+//    }
 
-        ViewdealEntity that = (ViewdealEntity) o;
+//    @OneToMany(mappedBy = "viewdealByDealView")
+//    public Collection<DealEntity> getDealsByIdViewDeal() {
+//        return dealsByIdViewDeal;
+//    }
+//
+//    public void setDealsByIdViewDeal(Collection<DealEntity> dealsByIdViewDeal) {
+//        this.dealsByIdViewDeal = dealsByIdViewDeal;
+//    }
 
-        if (idViewDeal != that.idViewDeal) return false;
-        if (viewDeal != null ? !viewDeal.equals(that.viewDeal) : that.viewDeal != null) return false;
+    @OneToMany(mappedBy = "viewdealEntity", cascade = CascadeType.ALL)
+    private Set<DealEntity> dealEntities;
 
-        return true;
+    public Set<DealEntity> getDealEntities() {
+        return dealEntities;
     }
 
-    @Override
-    public int hashCode() {
-        int result = idViewDeal;
-        result = 31 * result + (viewDeal != null ? viewDeal.hashCode() : 0);
-        return result;
+    public void setDealEntities(Set<DealEntity> dealEntities) {
+        this.dealEntities= dealEntities;
     }
 
-    @OneToMany(mappedBy = "viewdealByDealView")
-    public Collection<DealEntity> getDealsByIdViewDeal() {
-        return dealsByIdViewDeal;
-    }
 
-    public void setDealsByIdViewDeal(Collection<DealEntity> dealsByIdViewDeal) {
-        this.dealsByIdViewDeal = dealsByIdViewDeal;
-    }
 }

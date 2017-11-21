@@ -3,27 +3,28 @@ package me.svetilnik.dbService.hibernate.model.dataSet;
 import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
-@Table(name = "positions", schema = "agentstvo")
+@Table(name = "positions")
 public class PositionsEntity extends Model {
-    private int idPositions;
-    private String positions;
-    private Collection<EmployeesEntity> employeesByIdPositions;
 
     @Id
+    @GeneratedValue
     @Column(name = "idPositions", nullable = false)
-    public int getIdPositions() {
+    private long idPositions;
+
+    @Column(name = "Positions", nullable = false, length = 45)
+    private String positions;
+
+    public long getIdPositions() {
         return idPositions;
     }
 
-    public void setIdPositions(int idPositions) {
+    public void setIdPositions(long idPositions) {
         this.idPositions = idPositions;
     }
 
-    @Basic
-    @Column(name = "Positions", nullable = false, length = 45)
     public String getPositions() {
         return positions;
     }
@@ -32,32 +33,34 @@ public class PositionsEntity extends Model {
         this.positions = positions;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        PositionsEntity that = (PositionsEntity) o;
+//
+//        if (idPositions != that.idPositions) return false;
+//        if (positions != null ? !positions.equals(that.positions) : that.positions != null) return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = idPositions;
+//        result = 31 * result + (positions != null ? positions.hashCode() : 0);
+//        return result;
+//    }
 
-        PositionsEntity that = (PositionsEntity) o;
+    @OneToMany(mappedBy = "positionsEntity", cascade = CascadeType.ALL)
+    private Set<EmployeesEntity> employeesEntity;
 
-        if (idPositions != that.idPositions) return false;
-        if (positions != null ? !positions.equals(that.positions) : that.positions != null) return false;
-
-        return true;
+    public Set<EmployeesEntity> getEmployeesEntity() {
+        return employeesEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = idPositions;
-        result = 31 * result + (positions != null ? positions.hashCode() : 0);
-        return result;
-    }
-
-    @OneToMany(mappedBy = "positionsByPosition")
-    public Collection<EmployeesEntity> getEmployeesByIdPositions() {
-        return employeesByIdPositions;
-    }
-
-    public void setEmployeesByIdPositions(Collection<EmployeesEntity> employeesByIdPositions) {
-        this.employeesByIdPositions = employeesByIdPositions;
+    public void setEmployeesEntity(Set<EmployeesEntity> employeesEntity) {
+        this.employeesEntity = employeesEntity;
     }
 }

@@ -4,26 +4,29 @@ import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
-@Table(name = "streets", schema = "agentstvo")
+@Table(name = "streets")
 public class StreetsEntity extends Model{
-    private int idStreets;
-    private String streetsName;
-    private Collection<LocationEntity> locationsByIdStreets;
+
 
     @Id
+    @GeneratedValue
     @Column(name = "idStreets", nullable = false)
-    public int getIdStreets() {
+    private long idStreets;
+
+    @Column(name = "StreetsName", nullable = false, length = 150)
+    private String streetsName;
+
+    public long getIdStreets() {
         return idStreets;
     }
 
-    public void setIdStreets(int idStreets) {
+    public void setIdStreets(long idStreets) {
         this.idStreets = idStreets;
     }
 
-    @Basic
-    @Column(name = "StreetsName", nullable = false, length = 150)
     public String getStreetsName() {
         return streetsName;
     }
@@ -32,32 +35,37 @@ public class StreetsEntity extends Model{
         this.streetsName = streetsName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    @OneToMany(mappedBy = "streetsEntity", cascade = CascadeType.ALL)
+    private Set<LocationEntity> locationEntities;
 
-        StreetsEntity that = (StreetsEntity) o;
-
-        if (idStreets != that.idStreets) return false;
-        if (streetsName != null ? !streetsName.equals(that.streetsName) : that.streetsName != null) return false;
-
-        return true;
+    public Set<LocationEntity> getLocationEntities() {
+        return locationEntities;
     }
 
-    @Override
-    public int hashCode() {
-        int result = idStreets;
-        result = 31 * result + (streetsName != null ? streetsName.hashCode() : 0);
-        return result;
+    public void setLocationEntities(Set<LocationEntity> locationEntities) {
+        this.locationEntities= locationEntities;
     }
 
-    @OneToMany(mappedBy = "streetsByLocationStreet" )
-    public Collection<LocationEntity> getLocationsByIdStreets() {
-        return locationsByIdStreets;
-    }
 
-    public void setLocationsByIdStreets(Collection<LocationEntity> locationsByIdStreets) {
-        this.locationsByIdStreets = locationsByIdStreets;
-    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        StreetsEntity that = (StreetsEntity) o;
+//
+//        if (idStreets != that.idStreets) return false;
+//        if (streetsName != null ? !streetsName.equals(that.streetsName) : that.streetsName != null) return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = idStreets;
+//        result = 31 * result + (streetsName != null ? streetsName.hashCode() : 0);
+//        return result;
+//    }
+
 }

@@ -16,20 +16,22 @@
     	<thead>
     		<tr>
     			<th>Id </th>
-    			<th>Location</th>
-				<th>Name</th>
-				<th>LocationHouse</th>
-    			<th>Action</th>
+    			<th>Улица</th>
+				<th>Номер дома</th>
+				<th>Корпус</th>
+				<th>Квартира</th>
+    			<th>Событие</th>
     		</tr>
     	</thead>
     	<tbody>
     		<c:forEach items="${location}" var = "locatio">
     			<tr>
     				<td><c:out value="${locatio.idLocation}"/></td>
-					<td><c:out value="${locatio.locationName}"/></td>
-    				<td><c:out value="${locatio.locationStreet}"/></td>
+					<td><c:out value="${locatio.streetsEntity.streetsName}"/></td>
 					<td><c:out value="${locatio.locationHouse}"/></td>
-    				<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${locationn.idLocation}"/>">Delete</a></td>
+					<td><c:out value="${locatio.locationCorps}"/></td>
+					<td><c:out value="${locatio.locationFlat}"/></td>
+    				<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${locatio.idLocation}"/>">Delete</a></td>
     			</tr>
     		</c:forEach>
     	</tbody>

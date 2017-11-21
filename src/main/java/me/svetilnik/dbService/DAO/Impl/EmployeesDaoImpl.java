@@ -1,6 +1,6 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-import me.svetilnik.dbService.hibernate.HibernateUtil;
+//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -13,7 +13,8 @@ public class EmployeesDaoImpl {
     private Session session = null;
 
     public EmployeesDaoImpl(){
-        session = HibernateUtil.getSessionFactory().openSession();
+//        session = HibernateUtil.getSessionFactory().openSession();
+        session = null;
     }
 
     public List<EmployeesEntity> getAll(int offcet, int limit) throws IOException {

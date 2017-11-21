@@ -4,51 +4,36 @@ import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "location", schema = "agentstvo")
 public class LocationEntity extends Model {
-    private int idLocation;
-    private int locationStreet;
-    private String locationHouse;
-    private String locationName;
-    private StreetsEntity streetsByLocationStreet;
-    private Collection<ParampropertyEntity> parampropertiesByIdLocation;
+
 
     @Id
+    @GeneratedValue
     @Column(name = "idLocation", nullable = false)
-    public int getIdLocation() {
+    private long idLocation;
+//    private long locationStreet;
+
+    @Column(name = "LocationHouse", nullable = false, length = 20)
+    private String locationHouse;
+
+    @Column(name = "LocationCorps", nullable = false, length = 20)
+    private String locationCorps;
+
+    @Column(name = "LocationFlat", nullable = false)
+    private String locationFlat;
+
+    public long getIdLocation() {
         return idLocation;
     }
 
-    public void setIdLocation(int idLocation) {
+    public void setIdLocation(long idLocation) {
         this.idLocation = idLocation;
     }
 
-
-    @Basic
-    @Column(name = "LocationName", nullable = false)
-    public String getLocationName() {
-        return locationName;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
-
-
-    @Basic
-    @Column(name = "LocationStreet", nullable = false)
-    public int getLocationStreet() {
-        return locationStreet;
-    }
-
-    public void setLocationStreet(int locationStreet) {
-        this.locationStreet = locationStreet;
-    }
-
-    @Basic
-    @Column(name = "LocationHouse", nullable = false, length = 20)
     public String getLocationHouse() {
         return locationHouse;
     }
@@ -57,45 +42,69 @@ public class LocationEntity extends Model {
         this.locationHouse = locationHouse;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        LocationEntity that = (LocationEntity) o;
-
-        if (idLocation != that.idLocation) return false;
-        if (locationStreet != that.locationStreet) return false;
-        if (locationHouse != null ? !locationHouse.equals(that.locationHouse) : that.locationHouse != null)
-            return false;
-
-        return true;
+    public String getLocationCorps() {
+        return locationCorps;
     }
 
-    @Override
-    public int hashCode() {
-        int result = idLocation;
-        result = 31 * result + locationStreet;
-        result = 31 * result + (locationHouse != null ? locationHouse.hashCode() : 0);
-        return result;
+    public void setLocationCorps(String locationCorps) {
+        this.locationCorps = locationCorps;
     }
+
+
+    public String getLocationFlat() {
+        return locationFlat;
+    }
+
+    public void setLocationFlat(String locationName) {
+        this.locationFlat = locationFlat;
+    }
+
+
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        LocationEntity that = (LocationEntity) o;
+//
+//        if (idLocation != that.idLocation) return false;
+//        if (locationStreet != that.locationStreet) return false;
+//        if (locationHouse != null ? !locationHouse.equals(that.locationHouse) : that.locationHouse != null)
+//            return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = idLocation;
+//        result = 31 * result + locationStreet;
+//        result = 31 * result + (locationHouse != null ? locationHouse.hashCode() : 0);
+//        return result;
+//    }
 
     @ManyToOne
-    @JoinColumn(name = "LocationStreet", referencedColumnName = "idStreets", nullable = false , insertable = false, updatable = false)
-    public StreetsEntity getStreetsByLocationStreet() {
-        return streetsByLocationStreet;
+    @JoinColumn(name = "LocationStreet")
+    private StreetsEntity streetsEntity;
+
+    public StreetsEntity getStreetsEntity() { return streetsEntity; }
+
+    public void setStreetsEntity(StreetsEntity streetsEntity){
+        this.streetsEntity= streetsEntity;
     }
 
-    public void setStreetsByLocationStreet(StreetsEntity streetsByLocationStreet) {
-        this.streetsByLocationStreet = streetsByLocationStreet;
+
+    @OneToMany(mappedBy = "locationEntity", cascade = CascadeType.ALL)
+    private Set<ParampropertyEntity> parampropertyEntities;
+
+    public Set<ParampropertyEntity> getParampropertyEntities() {
+        return parampropertyEntities;
     }
 
-    @OneToMany(mappedBy = "locationByParamPropertyLocation")
-    public Collection<ParampropertyEntity> getParampropertiesByIdLocation() {
-        return parampropertiesByIdLocation;
+    public void setParampropertyEntities(Set<ParampropertyEntity> parampropertyEntities) {
+        this.parampropertyEntities= parampropertyEntities;
     }
 
-    public void setParampropertiesByIdLocation(Collection<ParampropertyEntity> parampropertiesByIdLocation) {
-        this.parampropertiesByIdLocation = parampropertiesByIdLocation;
-    }
+
 }

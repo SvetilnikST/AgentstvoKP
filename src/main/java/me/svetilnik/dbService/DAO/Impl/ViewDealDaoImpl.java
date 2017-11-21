@@ -1,6 +1,6 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-import me.svetilnik.dbService.hibernate.HibernateUtil;
+//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.ViewdealEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -13,7 +13,7 @@ public class ViewDealDaoImpl {
     private Session session = null;
 
     public ViewDealDaoImpl(){
-        session = HibernateUtil.getSessionFactory().openSession();
+        session = null;
     }
 
     public List<ViewdealEntity> getAll(int offcet, int limit) throws IOException {
