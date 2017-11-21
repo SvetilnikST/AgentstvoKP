@@ -1,8 +1,6 @@
 package me.svetilnik.agentstvo.servlet.controller;
 
-import me.svetilnik.agentstvo.servlet.controller.command.LoginCommand;
-import me.svetilnik.agentstvo.servlet.controller.command.PositionsCommand;
-import me.svetilnik.agentstvo.servlet.controller.command.StreetsCommand;
+import me.svetilnik.agentstvo.servlet.controller.command.*;
 
 public enum  CommandEnum {
     LOGIN {{
@@ -14,6 +12,25 @@ public enum  CommandEnum {
     POSITIONS {{
         this.command = new PositionsCommand();
     }},
+    VIEWDEAL {{
+        this.command = new ViewDealCommand();
+    }},
+    CLIENTS {{
+        this.command = new ClientsCommand();
+    }},
+    LOCATION {{
+        this.command = new LocationCommand();
+    }},
+    PROPERTY {{
+        this.command = new PropertyCommand();
+    }},
+    PARAMPROPERTY {{
+        this.command = new ParamPropertyCommand();
+    }},
+    EMPLOYEES {{
+        this.command = new EmployeesCommand();
+    }},
+
 
 //    LOGOUT {{
 //        this.command = new LogOutCommand();

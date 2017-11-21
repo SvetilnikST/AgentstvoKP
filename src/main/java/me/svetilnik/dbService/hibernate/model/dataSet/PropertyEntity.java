@@ -1,15 +1,17 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
+import me.svetilnik.agentstvo.servlet.model.Model;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
 @Table(name = "property", schema = "agentstvo")
-public class PropertyEntity {
+public class PropertyEntity extends Model {
     private int idProperty;
     private String property;
     private int paramProperty;
-    private String propertycol;
+
     private Collection<DealEntity> dealsByIdProperty;
     private ParampropertyEntity parampropertyByParamProperty;
 
@@ -43,16 +45,6 @@ public class PropertyEntity {
         this.paramProperty = paramProperty;
     }
 
-    @Basic
-    @Column(name = "propertycol", nullable = true, length = 45)
-    public String getPropertycol() {
-        return propertycol;
-    }
-
-    public void setPropertycol(String propertycol) {
-        this.propertycol = propertycol;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,7 +55,7 @@ public class PropertyEntity {
         if (idProperty != that.idProperty) return false;
         if (paramProperty != that.paramProperty) return false;
         if (property != null ? !property.equals(that.property) : that.property != null) return false;
-        if (propertycol != null ? !propertycol.equals(that.propertycol) : that.propertycol != null) return false;
+      // if (propertycol != null ? !propertycol.equals(that.propertycol) : that.propertycol != null) return false;
 
         return true;
     }
@@ -73,7 +65,7 @@ public class PropertyEntity {
         int result = idProperty;
         result = 31 * result + (property != null ? property.hashCode() : 0);
         result = 31 * result + paramProperty;
-        result = 31 * result + (propertycol != null ? propertycol.hashCode() : 0);
+       // result = 31 * result + (propertycol != null ? propertycol.hashCode() : 0);
         return result;
     }
 

@@ -1,14 +1,17 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
+import me.svetilnik.agentstvo.servlet.model.Model;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
 @Table(name = "location", schema = "agentstvo")
-public class LocationEntity {
+public class LocationEntity extends Model {
     private int idLocation;
     private int locationStreet;
     private String locationHouse;
+    private String locationName;
     private StreetsEntity streetsByLocationStreet;
     private Collection<ParampropertyEntity> parampropertiesByIdLocation;
 
@@ -21,6 +24,18 @@ public class LocationEntity {
     public void setIdLocation(int idLocation) {
         this.idLocation = idLocation;
     }
+
+
+    @Basic
+    @Column(name = "LocationName", nullable = false)
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
 
     @Basic
     @Column(name = "LocationStreet", nullable = false)

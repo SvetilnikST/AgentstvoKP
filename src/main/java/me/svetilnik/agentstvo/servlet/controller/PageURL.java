@@ -7,6 +7,13 @@ public interface PageURL {
 
     String STREETS_PAGE = "/list_streets.jsp";
     String POSITIONS_PAGE = "/list_positions.jsp";
+    String VIEWDEAL_PAGE = "/list_viewdeal.jsp";
+    String CLIENTS_PAGE = "/list_clients.jsp";
+    String LOCATION_PAGE = "/list_location.jsp";
+    String PROPERTY_PAGE = "/list_property.jsp";
+    String PARAMPROPERTY_PAGE = "/list_paramproperty.jsp";
+    String EMPLOYEES_PAGE = "/list_employees.jsp";
+
 
     String DOWNLOAD = "/download?downloadfile=";
 

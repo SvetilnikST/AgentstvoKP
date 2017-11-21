@@ -1,11 +1,13 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
+import me.svetilnik.agentstvo.servlet.model.Model;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
 @Table(name = "viewdeal", schema = "agentstvo")
-public class ViewdealEntity {
+public class ViewdealEntity extends Model {
     private int idViewDeal;
     private String viewDeal;
     private Collection<DealEntity> dealsByIdViewDeal;

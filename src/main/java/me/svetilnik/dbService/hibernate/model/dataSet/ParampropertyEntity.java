@@ -1,11 +1,13 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
+import me.svetilnik.agentstvo.servlet.model.Model;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
 @Table(name = "paramproperty", schema = "agentstvo")
-public class ParampropertyEntity {
+public class ParampropertyEntity extends Model {
     private int idParamProperty;
     private int paramPropertyArea;
     private int paramPropertyLocation;

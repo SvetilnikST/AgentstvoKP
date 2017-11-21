@@ -1,12 +1,14 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
+import me.svetilnik.agentstvo.servlet.model.Model;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
 
 @Entity
 @Table(name = "employees", schema = "agentstvo")
-public class EmployeesEntity {
+public class EmployeesEntity extends Model {
     private int idEmployees;
     private String employeesSnm;
     private String employeesFloor;
