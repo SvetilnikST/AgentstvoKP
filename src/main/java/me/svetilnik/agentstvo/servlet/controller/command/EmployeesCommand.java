@@ -18,6 +18,7 @@ public String execute(HttpServletRequest req, HttpServletResponse resp) throws I
     List<EmployeesEntity> employeesEntities = employeesDao.getAll(0,0);
 
     req.setAttribute("employees", employeesEntities);
+    req.setAttribute("title", "список сотрудников");
     return PageURL.EMPLOYEES_PAGE;
 
 

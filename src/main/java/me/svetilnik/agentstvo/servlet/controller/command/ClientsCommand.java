@@ -18,6 +18,8 @@ public class ClientsCommand implements ActionCommand {
         List<ClientsEntity> clientsEntities = clientsDao.getAll(0,0);
 
         req.setAttribute("clients", clientsEntities);
+        req.setAttribute("title", "список сотрудников");
+
         return PageURL.CLIENTS_PAGE;
     }
 }

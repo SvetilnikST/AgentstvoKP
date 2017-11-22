@@ -1,27 +1,33 @@
 package me.svetilnik.dbService.DAO.Impl;
 
 //import me.svetilnik.dbService.hibernate.HibernateUtil;
+import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.ClientsEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
 public class ClientsDaoImpl {
     private Session session = null;
+    private EntityManager entityManager = null;
+
 
     public ClientsDaoImpl(){
 //        session = HibernateUtil.getSessionFactory().openSession();
         session = null;
+        entityManager = HibernateUtilFactory.getEntityManager();
     }
 
     public List<ClientsEntity> getAll(int offcet, int limit) throws IOException {
-        Criteria criteria;
+        List<ClientsEntity> result = entityManager.createQuery(
+                "from ClientsEntity " )
+                .getResultList();
 
-        criteria = session.createCriteria(ClientsEntity.class);
-        return (List<ClientsEntity>) criteria.list();
+        return result;
     }
 
 
