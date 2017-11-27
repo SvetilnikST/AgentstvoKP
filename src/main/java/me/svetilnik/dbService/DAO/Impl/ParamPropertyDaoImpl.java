@@ -1,6 +1,5 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.ParampropertyEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

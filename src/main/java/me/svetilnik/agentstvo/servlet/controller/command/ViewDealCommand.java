@@ -17,6 +17,7 @@ public class ViewDealCommand implements ActionCommand {
         List<ViewdealEntity> viewdealEntities = viewdealDao.getAll(0,0);
 
         req.setAttribute("viewdeal", viewdealEntities);
+        req.setAttribute("title", "Список видов сделок");
         return PageURL.VIEWDEAL_PAGE;
     }
 }

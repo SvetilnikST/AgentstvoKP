@@ -16,6 +16,7 @@ public class PositionsCommand implements ActionCommand {
         PositionsDaoImpl positionsDao = new PositionsDaoImpl();
         List<PositionsEntity> positionsEntities = positionsDao.getAll(0,0);
         req.setAttribute("positions", positionsEntities);
+        req.setAttribute("title", "Список должностей");
         return PageURL.POSITIONS_PAGE;
     }
 }

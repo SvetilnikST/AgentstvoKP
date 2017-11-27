@@ -26,15 +26,12 @@
 				<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${locatio.idLocation}"/>">Удалить</a></td>
     			</tr>
     		</c:forEach>
+
+			<form action ="/webapp/new_location.jsp">
+				<br></br>
+				<button type="submit" class="btn btn-primary  btn-md">Добавить</button>
+			</form>
     	</tbody>
     </table>
-
-    <p><a href = "WorkTaskController?action=insert_worktask">Add workTask</a></p>
-
-    <form name="frmImportWorkNote" method="POST" action="WorkTaskController" enctype="multipart/form-data">
-    <input type = "hidden" name="action" value="import"/>
-    <input type="file" name="excelFile"/>
-    <input type = "submit" value = "Import from excel" name = "button"/>
-    </form>
 
 <jsp:include page="includ/footer.jsp"></jsp:include>

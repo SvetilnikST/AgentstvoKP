@@ -18,8 +18,7 @@ public String execute(HttpServletRequest req, HttpServletResponse resp) throws I
     List<ParampropertyEntity> parampropertyEntities = paramPropertyDao.getAll(0,0);
 
     req.setAttribute("paramproperty", parampropertyEntities);
+    req.setAttribute("title", "Cписок параметров недвижимости ");
     return PageURL.PARAMPROPERTY_PAGE;
-
-
 }
 }

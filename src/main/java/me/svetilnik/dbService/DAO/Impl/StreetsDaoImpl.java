@@ -1,7 +1,5 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-import me.svetilnik.agentstvo.servlet.model.Model;
-//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.StreetsEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -19,13 +17,7 @@ public class StreetsDaoImpl {
 
     public List<StreetsEntity> getAll(int offcet, int limit) throws IOException {
         Criteria criteria;
-
         criteria = session.createCriteria(StreetsEntity.class);
-//        criteria.add(Restrictions.eq("employeesMail", login));
-//        criteria.add(Restrictions.eq("password", password));
-
-//        List<StreetsEntity> result = session.
-
         return (List<StreetsEntity>) criteria.list();
     }
 

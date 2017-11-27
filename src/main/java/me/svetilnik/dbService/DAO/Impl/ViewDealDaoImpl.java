@@ -1,6 +1,5 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.model.dataSet.ViewdealEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -20,10 +19,6 @@ public class ViewDealDaoImpl {
         Criteria criteria;
 
         criteria = session.createCriteria(ViewdealEntity.class);
-//        criteria.add(Restrictions.eq("employeesMail", login));
-//        criteria.add(Restrictions.eq("password", password));
-//        List<StreetsEntity> result = session.
-
         return (List<ViewdealEntity>) criteria.list();
     }
 

@@ -3,10 +3,7 @@ package me.svetilnik.agentstvo.servlet.controller.command;
 import me.svetilnik.agentstvo.servlet.controller.ActionCommand;
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
 import me.svetilnik.dbService.DAO.Impl.LocationDaoImpl;
-
 import me.svetilnik.dbService.hibernate.model.dataSet.LocationEntity;
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -22,7 +19,5 @@ public String execute(HttpServletRequest req, HttpServletResponse resp) throws I
     req.setAttribute("location", locationEntities);
     req.setAttribute("title", "Список расположений");
     return PageURL.LOCATION_PAGE;
-
-
 }
 }

@@ -1,6 +1,5 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.ClientsEntity;
 import org.hibernate.Criteria;
@@ -17,7 +16,6 @@ public class ClientsDaoImpl {
 
 
     public ClientsDaoImpl(){
-//        session = HibernateUtil.getSessionFactory().openSession();
         session = null;
         entityManager = HibernateUtilFactory.getEntityManager();
     }

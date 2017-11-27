@@ -53,45 +53,7 @@ public class DealEntity {
         this.dealPercent = dealPercent;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        DealEntity that = (DealEntity) o;
-//
-//        if (idDeal != that.idDeal) return false;
-//        if (dateDeal != that.dateDeal) return false;
-//        if (dealClient1 != that.dealClient1) return false;
-//        if (dealClient2 != that.dealClient2) return false;
-//        if (dealView != that.dealView) return false;
-//        if (dealProperty != that.dealProperty) return false;
-//        if (dealPropertyParam != that.dealPropertyParam) return false;
-//        if (dealEmployee != that.dealEmployee) return false;
-//        if (Double.compare(that.dealSum, dealSum) != 0) return false;
-//        if (Double.compare(that.dealPercent, dealPercent) != 0) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result;
-//        long temp;
-//        result = idDeal;
-//        result = 31 * result + dateDeal;
-//        result = 31 * result + dealClient1;
-//        result = 31 * result + dealClient2;
-//        result = 31 * result + dealView;
-//        result = 31 * result + dealProperty;
-//        result = 31 * result + dealPropertyParam;
-//        result = 31 * result + dealEmployee;
-//        temp = Double.doubleToLongBits(dealSum);
-//        result = 31 * result + (int) (temp ^ (temp >>> 32));
-//        temp = Double.doubleToLongBits(dealPercent);
-//        result = 31 * result + (int) (temp ^ (temp >>> 32));
-//        return result;
-//    }
+
 
     @ManyToOne
     @JoinColumn(name = "DealView")
@@ -154,53 +116,4 @@ public class DealEntity {
         this.clientsEntity2= clientsEntity2;
     }
 
-//    @ManyToOne
-//    @JoinColumn(name = "DealClient1", referencedColumnName = "idClients", nullable = false)
-//    public ClientsEntity getClientsByDealClient1() {
-//        return clientsByDealClient1;
-//    }
-//
-//    public void setClientsByDealClient1(ClientsEntity clientsByDealClient1) {
-//        this.clientsByDealClient1 = clientsByDealClient1;
-//    }
-//
-//    @ManyToOne
-//    @JoinColumn(name = "DealClient2", referencedColumnName = "idClients", nullable = false)
-//    public ClientsEntity getClientsByDealClient2() {
-//        return clientsByDealClient2;
-//    }
-//
-//    public void setClientsByDealClient2(ClientsEntity clientsByDealClient2) {
-//        this.clientsByDealClient2 = clientsByDealClient2;
-//    }
-//
-//    @ManyToOne
-//    @JoinColumn(name = "DealView", referencedColumnName = "idViewDeal", nullable = false , insertable = false, updatable = false)
-//    public ViewdealEntity getViewdealByDealView() {
-//        return viewdealByDealView;
-//    }
-//
-//    public void setViewdealByDealView(ViewdealEntity viewdealByDealView) {
-//        this.viewdealByDealView = viewdealByDealView;
-//    }
-//
-//    @ManyToOne
-//    @JoinColumn(name = "DealProperty", referencedColumnName = "idProperty", nullable = false)
-//    public PropertyEntity getPropertyByDealProperty() {
-//        return propertyByDealProperty;
-//    }
-//
-//    public void setPropertyByDealProperty(PropertyEntity propertyByDealProperty) {
-//        this.propertyByDealProperty = propertyByDealProperty;
-//    }
-//
-//    @ManyToOne
-//    @JoinColumn(name = "DealEmployee", referencedColumnName = "idEmployees", nullable = false)
-//    public EmployeesEntity getEmployeesByDealEmployee() {
-//        return employeesByDealEmployee;
-//    }
-//
-//    public void setEmployeesByDealEmployee(EmployeesEntity employeesByDealEmployee) {
-//        this.employeesByDealEmployee = employeesByDealEmployee;
-//    }
 }

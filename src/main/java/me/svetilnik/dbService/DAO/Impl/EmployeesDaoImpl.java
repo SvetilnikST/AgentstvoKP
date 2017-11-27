@@ -1,6 +1,5 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-//import me.svetilnik.dbService.hibernate.HibernateUtil;
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;
 import me.svetilnik.dbService.hibernate.model.dataSet.LocationEntity;
@@ -30,7 +29,6 @@ public class EmployeesDaoImpl {
         return result;
     }
 
-
     public EmployeesEntity getById(int id) throws IOException {
         Criteria criteria;
         criteria = session.createCriteria(EmployeesEntity.class);
@@ -58,7 +56,6 @@ public class EmployeesDaoImpl {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-
     public int getNumOfRecords(String tableName) throws IOException {
         Criteria criteria;
 
@@ -67,6 +64,4 @@ public class EmployeesDaoImpl {
         throw new UnsupportedOperationException("Not supported yet.");
 //        return 0;
     }
-
-
 }

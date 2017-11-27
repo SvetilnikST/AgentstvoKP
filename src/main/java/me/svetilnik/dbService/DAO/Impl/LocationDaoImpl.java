@@ -1,18 +1,15 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-//import me.svetilnik.dbService.hibernate.HibernateUtil;
+
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.LocationEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
+
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
 public class LocationDaoImpl {
-//    private Session session = null;
     private EntityManager entityManager = null;
 
     public LocationDaoImpl(){
@@ -20,12 +17,9 @@ public class LocationDaoImpl {
     }
 
     public List<LocationEntity> getAll(int offcet, int limit) throws IOException {
-//        Criteria criteria;
-
         List<LocationEntity> result = entityManager.createQuery(
                 "from LocationEntity " )
                 .getResultList();
-
         return result;
     }
 
@@ -36,7 +30,6 @@ public class LocationDaoImpl {
                         "where l.idLocation like :id ")
                 .setParameter("id", id)
                 .getSingleResult();
-
         return result;
     }
 
