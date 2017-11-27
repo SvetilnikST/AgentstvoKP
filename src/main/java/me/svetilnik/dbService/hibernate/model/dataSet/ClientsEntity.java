@@ -88,32 +88,4 @@ public class ClientsEntity extends Model {
     public void setDealEntities2(Set<DealEntity> dealEntities2) {
         this.dealEntities2= dealEntities2;
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        ClientsEntity that = (ClientsEntity) o;
-//
-//        if (idClients != that.idClients) return false;
-//        if (snmClients != null ? !snmClients.equals(that.snmClients) : that.snmClients != null) return false;
-//        if (floor != null ? !floor.equals(that.floor) : that.floor != null) return false;
-//        if (passportClients != null ? !passportClients.equals(that.passportClients) : that.passportClients != null)
-//            return false;
-//        if (phoneClients != null ? !phoneClients.equals(that.phoneClients) : that.phoneClients != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = idClients;
-//        result = 31 * result + (snmClients != null ? snmClients.hashCode() : 0);
-//        result = 31 * result + (floor != null ? floor.hashCode() : 0);
-//        result = 31 * result + (passportClients != null ? passportClients.hashCode() : 0);
-//        result = 31 * result + (phoneClients != null ? phoneClients.hashCode() : 0);
-//        return result;
-//    }
-
 }

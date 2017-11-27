@@ -18,8 +18,6 @@ public class ParampropertyEntity extends Model {
     @Column(name = "ParamPropertyArea", nullable = false)
     private int paramPropertyArea;
 
-//    private int paramPropertyLocation;
-
     @Column(name = "ParamPropertyFloor", nullable = false)
     private int paramPropertyFloor;
 
@@ -58,53 +56,6 @@ public class ParampropertyEntity extends Model {
     public void setParamPropertyDescription(String paramPropertyDescription) {
         this.paramPropertyDescription = paramPropertyDescription;
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        ParampropertyEntity that = (ParampropertyEntity) o;
-//
-//        if (idParamProperty != that.idParamProperty) return false;
-//        if (paramPropertyArea != that.paramPropertyArea) return false;
-//        if (paramPropertyLocation != that.paramPropertyLocation) return false;
-//        if (paramPropertyFloor != that.paramPropertyFloor) return false;
-//        if (paramPropertyDescription != null ? !paramPropertyDescription.equals(that.paramPropertyDescription) : that.paramPropertyDescription != null)
-//            return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = idParamProperty;
-//        result = 31 * result + paramPropertyArea;
-//        result = 31 * result + paramPropertyLocation;
-//        result = 31 * result + paramPropertyFloor;
-//        result = 31 * result + (paramPropertyDescription != null ? paramPropertyDescription.hashCode() : 0);
-//        return result;
-//    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "ParamPropertyLocation", referencedColumnName = "idLocation", nullable = false)
-//    public LocationEntity getLocationByParamPropertyLocation() {
-//        return locationByParamPropertyLocation;
-//    }
-//
-//    public void setLocationByParamPropertyLocation(LocationEntity locationByParamPropertyLocation) {
-//        this.locationByParamPropertyLocation = locationByParamPropertyLocation;
-//    }
-//
-//    @OneToMany(mappedBy = "parampropertyByParamProperty")
-//    public Collection<PropertyEntity> getPropertiesByIdParamProperty() {
-//        return propertiesByIdParamProperty;
-//    }
-//
-//    public void setPropertiesByIdParamProperty(Collection<PropertyEntity> propertiesByIdParamProperty) {
-//        this.propertiesByIdParamProperty = propertiesByIdParamProperty;
-//    }
-
 
     @ManyToOne
     @JoinColumn(name = "ParamPropertyLocation")

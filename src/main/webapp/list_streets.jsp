@@ -17,7 +17,7 @@
     		<tr>
     			<th>Id </th>
     			<th>Streets</th>
-    			<th>Action</th>
+
     		</tr>
     	</thead>
     	<tbody>
@@ -31,13 +31,6 @@
     	</tbody>
     </table>
 
-    <%--<jsp:include page="pagesWorkTask.jsp"></jsp:include>--%>
-    <p><a href = "WorkTaskController?action=insert_worktask">Add workTask</a></p>
-
-    <form name="frmImportWorkNote" method="POST" action="WorkTaskController" enctype="multipart/form-data">
-    <input type = "hidden" name="action" value="import"/>
-    <input type="file" name="excelFile"/>
-    <input type = "submit" value = "Import from excel" name = "button"/>
     </form>
 
 </body>

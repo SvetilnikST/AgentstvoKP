@@ -18,8 +18,6 @@ import java.util.List;
 
         req.setAttribute("streets", streetsEntities);
         req.setAttribute("title", "Список улиц");
-        return PageURL.STREETS_PAGE;
-
-
+        return PageURL.LIST_STREETS_ACTION;
     }
 }

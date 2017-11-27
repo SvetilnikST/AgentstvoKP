@@ -28,4 +28,21 @@ public class PropertyEntity extends Model {
     public void setDealEntities(Set<DealEntity> dealEntities) {
         this.dealEntities= dealEntities;
     }
+
+    public long getIdProperty() {
+        return idProperty;
+    }
+
+    public void setIdProperty(long idProperty) {
+        this.idProperty = idProperty;
+    }
+
+    public String getProperty() {
+        return property;
+    }
+
+    public void setProperty(String property) {
+        this.property = property;
+    }
+
 }
