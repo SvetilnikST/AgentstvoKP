@@ -3,7 +3,6 @@ package me.svetilnik.dbService.hibernate.model.dataSet;
 import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -15,7 +14,6 @@ public class LocationEntity extends Model {
     @GeneratedValue
     @Column(name = "idLocation", nullable = false)
     private long idLocation;
-//    private long locationStreet;
 
     @Column(name = "LocationHouse", nullable = false, length = 20)
     private String locationHouse;
@@ -58,31 +56,6 @@ public class LocationEntity extends Model {
     public void setLocationFlat(String locationName) {
         this.locationFlat = locationFlat;
     }
-
-
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        LocationEntity that = (LocationEntity) o;
-//
-//        if (idLocation != that.idLocation) return false;
-//        if (locationStreet != that.locationStreet) return false;
-//        if (locationHouse != null ? !locationHouse.equals(that.locationHouse) : that.locationHouse != null)
-//            return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = idLocation;
-//        result = 31 * result + locationStreet;
-//        result = 31 * result + (locationHouse != null ? locationHouse.hashCode() : 0);
-//        return result;
-//    }
 
     @ManyToOne
     @JoinColumn(name = "LocationStreet")

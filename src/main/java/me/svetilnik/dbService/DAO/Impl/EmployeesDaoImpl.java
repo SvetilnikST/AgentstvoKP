@@ -2,7 +2,6 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;
-import me.svetilnik.dbService.hibernate.model.dataSet.LocationEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -16,8 +15,6 @@ public class EmployeesDaoImpl {
 
     private Session session;
     public EmployeesDaoImpl(){
-//        session = HibernateUtil.getSessionFactory().openSession();
-        session = null;
         entityManager = HibernateUtilFactory.getEntityManager();
     }
 
@@ -30,25 +27,27 @@ public class EmployeesDaoImpl {
     }
 
     public EmployeesEntity getById(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(EmployeesEntity.class);
-        criteria.add(Restrictions.eq("idEmployees",id));
-        return (EmployeesEntity) criteria.uniqueResult();
+        EmployeesEntity result = (EmployeesEntity) entityManager.createQuery(
+                "select l from EmployeesEntity l " +
+                        "where l.idEmployees like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        return result;
     }
 
 
     public void insert(EmployeesEntity entity) throws IOException {
-        session.save(entity);
-        session.close();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 // хз сработает ли проверить потом!
     public void delete(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(EmployeesEntity.class);
-        criteria.add(Restrictions.eq("idEmployees",id));
-        session.delete(criteria);
-        return;
+        EmployeesEntity result = (EmployeesEntity) entityManager.createQuery(
+                "select l from EmployeesEntity l " +
+                        "where l.idEmployees like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 
@@ -57,11 +56,7 @@ public class EmployeesDaoImpl {
     }
 
     public int getNumOfRecords(String tableName) throws IOException {
-        Criteria criteria;
-
-        criteria = session.createCriteria(EmployeesEntity.class);
-
-        throw new UnsupportedOperationException("Not supported yet.");
+       throw new UnsupportedOperationException("Not supported yet.");
 //        return 0;
     }
 }

@@ -1,44 +1,49 @@
 package me.svetilnik.dbService.DAO.Impl;
 
+import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.PositionsEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
 public class PositionsDaoImpl {
-    private Session session = null;
+    private EntityManager entityManager = null;
     public PositionsDaoImpl(){
-        session = null;
+        entityManager = HibernateUtilFactory.getEntityManager();
     }
     public List<PositionsEntity> getAll(int offcet, int limit) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PositionsEntity.class);
-        return (List<PositionsEntity>) criteria.list();
+        List<PositionsEntity> result = entityManager.createQuery(
+                "from PositionsEntity " )
+                .getResultList();
+        return result;
     }
 
     public PositionsEntity getById(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PositionsEntity.class);
-        criteria.add(Restrictions.eq("idPositions",id));
-        return (PositionsEntity) criteria.uniqueResult();
+        PositionsEntity result = (PositionsEntity) entityManager.createQuery(
+                "select l from PositionsEntity l " +
+                        "where l.idPositions like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        return result;
     }
 
 
     public void insert(PositionsEntity entity) throws IOException {
-        session.save(entity);
-        session.close();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // хз сработает ли проверить потом!
     public void delete(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PositionsEntity.class);
-        criteria.add(Restrictions.eq("idPositions",id));
-        session.delete(criteria);
-        return;
+        PositionsEntity result = (PositionsEntity) entityManager.createQuery(
+                "select l from PositionsEntity l " +
+                        "where l.idPositions like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 
@@ -48,8 +53,6 @@ public class PositionsDaoImpl {
 
 
     public int getNumOfRecords(String tableName) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PositionsEntity.class);
         throw new UnsupportedOperationException("Not supported yet.");
 //        return 0;
     }

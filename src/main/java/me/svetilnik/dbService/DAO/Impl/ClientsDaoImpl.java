@@ -11,12 +11,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class ClientsDaoImpl {
-    private Session session = null;
+
     private EntityManager entityManager = null;
 
-
     public ClientsDaoImpl(){
-        session = null;
         entityManager = HibernateUtilFactory.getEntityManager();
     }
 
@@ -24,31 +22,32 @@ public class ClientsDaoImpl {
         List<ClientsEntity> result = entityManager.createQuery(
                 "from ClientsEntity " )
                 .getResultList();
-
         return result;
     }
 
 
     public ClientsEntity getById(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(ClientsEntity.class);
-        criteria.add(Restrictions.eq("idClients",id));
-        return (ClientsEntity) criteria.uniqueResult();
+        ClientsEntity result = (ClientsEntity) entityManager.createQuery(
+                "select l from ClientsEntity l " +
+                        "where l.idClients like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        return result;
     }
 
 
     public void insert(ClientsEntity entity) throws IOException {
-        session.save(entity);
-        session.close();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // хз сработает ли проверить потом!
     public void delete(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(ClientsEntity.class);
-        criteria.add(Restrictions.eq("idClients",id));
-        session.delete(criteria);
-        return;
+        ClientsEntity result = (ClientsEntity) entityManager.createQuery(
+                "select l from LocationEntity l " +
+                        "where l.idClients like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 
@@ -58,10 +57,6 @@ public class ClientsDaoImpl {
 
 
     public int getNumOfRecords(String tableName) throws IOException {
-        Criteria criteria;
-
-        criteria = session.createCriteria(ClientsEntity.class);
-
         throw new UnsupportedOperationException("Not supported yet.");
 //        return 0;
     }

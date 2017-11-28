@@ -17,9 +17,9 @@
         <form name="loginForm" method="POST" action="WorkTaskController">
         <input type = "hidden" name="action" value="login"/>
         <div class="form-group"> <label>Логин&nbsp;</label>
-        <input type="email" name="login" class="form-control" placeholder="Enter email"> </div>
+        <input type="email" name="login" class="form-control" placeholder="Enter email" value="s@gmail.com"> </div>
         <div class="form-group"> <label>Пароль</label>
-        <input type="password" name="password" class="form-control" placeholder="Password" value=""/> </div>
+        <input type="password" name="password" class="form-control" placeholder="Password" value="1"/> </div>
      <button type="submit" class="btn btn-primary">Войти</button>
         </form>
         </div>

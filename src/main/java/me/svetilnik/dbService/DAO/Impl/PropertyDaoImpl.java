@@ -1,43 +1,48 @@
 package me.svetilnik.dbService.DAO.Impl;
 
+import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.PropertyEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
 public class PropertyDaoImpl {
-    private Session session = null;
+    private EntityManager entityManager = null;
     public PropertyDaoImpl(){
-        session = null;
+        entityManager = HibernateUtilFactory.getEntityManager();
     }
     public List<PropertyEntity> getAll(int offcet, int limit) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PropertyEntity.class);
-        return (List<PropertyEntity>) criteria.list();
+        List<PropertyEntity> result = entityManager.createQuery(
+                "from PropertyEntity " )
+                .getResultList();
+        return result;
     }
 
     public PropertyEntity getById(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PropertyEntity.class);
-        criteria.add(Restrictions.eq("idProperty",id));
-        return (PropertyEntity) criteria.uniqueResult();
+        PropertyEntity result = (PropertyEntity) entityManager.createQuery(
+                "select l from PropertyEntity l " +
+                        "where l.idProperty like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        return result;
     }
 
     public void insert(PropertyEntity entity) throws IOException {
-        session.save(entity);
-        session.close();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // хз сработает ли проверить потом!
     public void delete(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PropertyEntity.class);
-        criteria.add(Restrictions.eq("idProperty",id));
-        session.delete(criteria);
-        return;
+        PropertyEntity result = (PropertyEntity) entityManager.createQuery(
+                "select l from LocationEntity l " +
+                        "where l.idProperty like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 
@@ -47,8 +52,7 @@ public class PropertyDaoImpl {
 
 
     public int getNumOfRecords(String tableName) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(PropertyEntity.class);
+
         throw new UnsupportedOperationException("Not supported yet.");
 //        return 0;
     }

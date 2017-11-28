@@ -33,26 +33,6 @@ public class PositionsEntity extends Model {
         this.positions = positions;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        PositionsEntity that = (PositionsEntity) o;
-//
-//        if (idPositions != that.idPositions) return false;
-//        if (positions != null ? !positions.equals(that.positions) : that.positions != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = idPositions;
-//        result = 31 * result + (positions != null ? positions.hashCode() : 0);
-//        return result;
-//    }
-
     @OneToMany(mappedBy = "positionsEntity", cascade = CascadeType.ALL)
     private Set<EmployeesEntity> employeesEntity;
 

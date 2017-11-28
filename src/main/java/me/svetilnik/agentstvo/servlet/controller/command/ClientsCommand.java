@@ -19,6 +19,6 @@ public class ClientsCommand implements ActionCommand {
 
         req.setAttribute("clients", clientsEntities);
         req.setAttribute("title", "список клентов");
-        return PageURL.LIST_CLIENTS_ACTION;
+        return PageURL.CLIENTS_PAGE;
     }
 }

@@ -15,7 +15,6 @@ public String execute(HttpServletRequest req, HttpServletResponse resp) throws I
 
     LocationDaoImpl locationDao = new LocationDaoImpl();
     List<LocationEntity> locationEntities = locationDao.getAll(0,0);
-
     req.setAttribute("location", locationEntities);
     req.setAttribute("title", "Список расположений");
     return PageURL.LOCATION_PAGE;

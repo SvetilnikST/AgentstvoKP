@@ -15,9 +15,8 @@ import java.util.List;
 
         StreetsDaoImpl streetsDao = new StreetsDaoImpl();
         List<StreetsEntity> streetsEntities = streetsDao.getAll(0,0);
-
         req.setAttribute("streets", streetsEntities);
         req.setAttribute("title", "Список улиц");
-        return PageURL.LIST_STREETS_ACTION;
+        return PageURL.STREETS_PAGE;
     }
 }
