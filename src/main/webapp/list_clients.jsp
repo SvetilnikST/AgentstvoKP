@@ -23,8 +23,8 @@
 					<td><c:out value="${client.passportClients}"/></td>
 					<td><c:out value="${client.phoneClients}"/></td>
 
-    				<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${client.idClients}"/>">Редактировать</a></td>
-					<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${client.idClients}"/>">Удалить</a></td>
+    				<td><a href = "WorkTaskController?action=delete_clients&id=<c:out value = "${client.idClients}"/>">Редактировать</a></td>
+					<td><a href = "WorkTaskController?action=delete_clients&id=<c:out value = "${client.idClients}"/>">Удалить</a></td>
 
     			</tr>
     		</c:forEach>

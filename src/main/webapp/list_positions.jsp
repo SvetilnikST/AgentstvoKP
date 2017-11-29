@@ -16,8 +16,8 @@
 			<td><c:out value="${position.idPositions}"/></td>
 			<td><c:out value="${position.positions}"/></td>
 
-			<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${position.idPositions}"/>">Редактировать</a></td>
-			<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${position.idPositions}"/>">Удалить</a></td>
+			<td><a href = "WorkTaskController?action=delete_positions&id=<c:out value = "${position.idPositions}"/>">Редактировать</a></td>
+			<td><a href = "WorkTaskController?action=delete_positions&id=<c:out value = "${position.idPositions}"/>">Удалить</a></td>
 		</tr>
 	</c:forEach>
 

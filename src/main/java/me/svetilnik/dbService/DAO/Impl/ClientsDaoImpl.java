@@ -26,7 +26,7 @@ public class ClientsDaoImpl {
     }
 
 
-    public ClientsEntity getById(int id) throws IOException {
+    public ClientsEntity getById(long id) throws IOException {
         ClientsEntity result = (ClientsEntity) entityManager.createQuery(
                 "select l from ClientsEntity l " +
                         "where l.idClients like :id ")
@@ -37,17 +37,17 @@ public class ClientsDaoImpl {
 
 
     public void insert(ClientsEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
+//        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        ClientsEntity result = (ClientsEntity) entityManager.createQuery(
-                "select l from LocationEntity l " +
-                        "where l.idClients like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(ClientsEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 

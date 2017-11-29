@@ -22,7 +22,7 @@ public class PropertyDaoImpl {
         return result;
     }
 
-    public PropertyEntity getById(int id) throws IOException {
+    public PropertyEntity getById(long id) throws IOException {
         PropertyEntity result = (PropertyEntity) entityManager.createQuery(
                 "select l from PropertyEntity l " +
                         "where l.idProperty like :id ")
@@ -32,19 +32,17 @@ public class PropertyDaoImpl {
     }
 
     public void insert(PropertyEntity entity) throws IOException {
+        entityManager.merge(entity);
+
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        PropertyEntity result = (PropertyEntity) entityManager.createQuery(
-                "select l from LocationEntity l " +
-                        "where l.idProperty like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(PropertyEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
-
 
     public void update(PropertyEntity entity) throws IOException {
         throw new UnsupportedOperationException("Not supported yet.");

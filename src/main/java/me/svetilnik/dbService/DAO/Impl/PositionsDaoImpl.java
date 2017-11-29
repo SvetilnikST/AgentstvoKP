@@ -22,7 +22,7 @@ public class PositionsDaoImpl {
         return result;
     }
 
-    public PositionsEntity getById(int id) throws IOException {
+    public PositionsEntity getById(long id) throws IOException {
         PositionsEntity result = (PositionsEntity) entityManager.createQuery(
                 "select l from PositionsEntity l " +
                         "where l.idPositions like :id ")
@@ -33,17 +33,16 @@ public class PositionsDaoImpl {
 
 
     public void insert(PositionsEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
     // хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        PositionsEntity result = (PositionsEntity) entityManager.createQuery(
-                "select l from PositionsEntity l " +
-                        "where l.idPositions like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(PositionsEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 

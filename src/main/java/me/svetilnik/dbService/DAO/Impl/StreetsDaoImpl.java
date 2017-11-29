@@ -22,7 +22,7 @@ private EntityManager entityManager = null;
     }
 
 
-    public StreetsEntity getById(int id) throws IOException {
+    public StreetsEntity getById(long id) throws IOException {
         StreetsEntity result = (StreetsEntity) entityManager.createQuery(
                 "select l from StreetsEntity l " +
                         "where l.idStreets like :id ")
@@ -33,17 +33,15 @@ private EntityManager entityManager = null;
 
 
     public void insert(StreetsEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-// хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        StreetsEntity result = (StreetsEntity) entityManager.createQuery(
-                "select l from StreetsEntity l " +
-                        "where l.idStreets like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(StreetsEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 

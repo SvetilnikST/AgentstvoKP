@@ -17,7 +17,7 @@ public class ViewDealDaoImpl {
         entityManager = HibernateUtilFactory.getEntityManager();
     }
 
-    public List<ViewdealEntity> getAll(int offcet, int limit) throws IOException {
+    public List<ViewdealEntity> getAll(long offcet, long limit) throws IOException {
         List<ViewdealEntity> result = entityManager.createQuery(
                 "from ViewdealEntity " )
                 .getResultList();
@@ -25,10 +25,10 @@ public class ViewDealDaoImpl {
     }
 
 
-    public ViewdealEntity getById(int id) throws IOException {
+    public ViewdealEntity getById(long id) throws IOException {
         ViewdealEntity result = (ViewdealEntity) entityManager.createQuery(
                 "select l from ViewdealEntity l " +
-                        "where l.idViewDeal like :id ")
+                        "where l.id like :id ")
                 .setParameter("id", id)
                 .getSingleResult();
         return result;
@@ -36,18 +36,29 @@ public class ViewDealDaoImpl {
 
 
     public void insert(ViewdealEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
+        //        entityManager.persist(entity);
+
+//        ViewdealEntity viewdealEntity = new ViewdealEntity();
+//
+//                (ViewdealEntity) entityManager.createQuery(
+//                "select l from ViewdealEntity l " +
+//                        "where l.idViewDeal like :id ")
+//                .setParameter("id", id)
+//                .getSingleResult();
+//        return result;
+
+//        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    // хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        ViewdealEntity result = (ViewdealEntity) entityManager.createQuery(
-                "select l from ViewdealEntity l " +
-                        "where l.idViewDeal like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
+    public void delete(ViewdealEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
+ }
 
 
     public void update(ViewdealEntity entity) throws IOException {

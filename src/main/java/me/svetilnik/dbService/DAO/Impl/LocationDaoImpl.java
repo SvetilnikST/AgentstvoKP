@@ -24,7 +24,7 @@ public class LocationDaoImpl {
     }
 
 
-    public LocationEntity getById(int id) throws IOException {
+    public LocationEntity getById(long id) throws IOException {
         LocationEntity result = (LocationEntity) entityManager.createQuery(
                 "select l from LocationEntity l " +
                         "where l.idLocation like :id ")
@@ -35,17 +35,15 @@ public class LocationDaoImpl {
 
 
     public void insert(LocationEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");    }
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
+    }
 
-// хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        LocationEntity result = (LocationEntity) entityManager.createQuery(
-                "select l from LocationEntity l " +
-                        "where l.idLocation like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return;
+    public void delete(LocationEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 

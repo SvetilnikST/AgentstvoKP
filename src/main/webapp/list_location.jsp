@@ -22,8 +22,8 @@
 					<td><c:out value="${locatio.locationHouse}"/></td>
 					<td><c:out value="${locatio.locationCorps}"/></td>
 					<td><c:out value="${locatio.locationFlat}"/></td>
-					<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${locatio.idLocation}"/>">Редактировать</a></td>
-				<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${locatio.idLocation}"/>">Удалить</a></td>
+					<td><a href = "WorkTaskController?action=delete_location&id=<c:out value = "${locatio.idLocation}"/>">Редактировать</a></td>
+				<td><a href = "WorkTaskController?action=delete_location&id=<c:out value = "${locatio.idLocation}"/>">Удалить</a></td>
     			</tr>
     		</c:forEach>
 

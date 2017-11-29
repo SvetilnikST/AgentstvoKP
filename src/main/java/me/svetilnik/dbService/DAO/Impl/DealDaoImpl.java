@@ -29,7 +29,7 @@ public class DealDaoImpl {
     }
 
 
-    public DealEntity getById(int id) throws IOException {
+    public DealEntity getById(long id) throws IOException {
         Criteria criteria;
         criteria = session.createCriteria(ClientsEntity.class);
         criteria.add(Restrictions.eq("idDeal",id));
@@ -38,17 +38,15 @@ public class DealDaoImpl {
 
 
     public void insert(DealEntity entity) throws IOException {
-        session.save(entity);
-        session.close();
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-    // хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(DealEntity.class);
-        criteria.add(Restrictions.eq("idDeal",id));
-        session.delete(criteria);
-        return;
+    public void delete(DealEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 

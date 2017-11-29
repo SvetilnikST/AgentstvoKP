@@ -26,7 +26,7 @@ public class EmployeesDaoImpl {
         return result;
     }
 
-    public EmployeesEntity getById(int id) throws IOException {
+    public EmployeesEntity getById(long id) throws IOException {
         EmployeesEntity result = (EmployeesEntity) entityManager.createQuery(
                 "select l from EmployeesEntity l " +
                         "where l.idEmployees like :id ")
@@ -37,17 +37,16 @@ public class EmployeesDaoImpl {
 
 
     public void insert(EmployeesEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-// хз сработает ли проверить потом!
-    public void delete(int id) throws IOException {
-        EmployeesEntity result = (EmployeesEntity) entityManager.createQuery(
-                "select l from EmployeesEntity l " +
-                        "where l.idEmployees like :id ")
-                .setParameter("id", id)
-                .getSingleResult();
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(EmployeesEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 
