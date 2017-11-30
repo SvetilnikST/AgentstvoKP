@@ -1,9 +1,7 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
 import me.svetilnik.agentstvo.servlet.model.Model;
-
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -11,7 +9,7 @@ import java.util.Set;
 public class PropertyEntity extends Model {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idProperty", nullable = false)
     private long idProperty;
 
@@ -44,5 +42,4 @@ public class PropertyEntity extends Model {
     public void setProperty(String property) {
         this.property = property;
     }
-
 }

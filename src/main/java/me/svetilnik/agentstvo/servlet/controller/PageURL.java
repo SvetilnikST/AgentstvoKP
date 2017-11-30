@@ -26,7 +26,6 @@ public interface PageURL {
 
     String VIEWDEAL_PAGE = "/list_viewdeal.jsp";
     String LIST_VIEWDEAL_ACTION = "/WorkTaskController?action=viewDeal";
-
     String DELETE_VIEWDEAL = "/WorkTaskController?action=delete_viewDeal&id";
     String ADD_VIEWDEAL = "/WorkTaskController?action=add_viewDeal";
 

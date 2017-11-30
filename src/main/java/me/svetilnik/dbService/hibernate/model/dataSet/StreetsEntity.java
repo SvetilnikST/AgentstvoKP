@@ -11,7 +11,7 @@ public class StreetsEntity extends Model{
 
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idStreets", nullable = false)
     private long idStreets;
 

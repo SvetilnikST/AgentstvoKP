@@ -11,7 +11,7 @@ public class LocationEntity extends Model {
 
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idLocation", nullable = false)
     private long idLocation;
 

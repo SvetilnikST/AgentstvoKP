@@ -1,7 +1,6 @@
 package me.svetilnik.dbService.hibernate.model.dataSet;
 
 import me.svetilnik.agentstvo.servlet.model.Model;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,7 +9,7 @@ import java.util.Set;
 public class PositionsEntity extends Model {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idPositions", nullable = false)
     private long idPositions;
 

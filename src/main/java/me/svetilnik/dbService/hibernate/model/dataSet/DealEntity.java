@@ -8,7 +8,7 @@ import java.sql.Date;
 public class DealEntity {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idDeal", nullable = false)
     private long idDeal;
 

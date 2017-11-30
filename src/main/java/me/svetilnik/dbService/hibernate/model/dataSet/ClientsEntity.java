@@ -11,7 +11,7 @@ import java.util.Set;
 public class ClientsEntity extends Model {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idClients", nullable = false)
     private long idClients;
 

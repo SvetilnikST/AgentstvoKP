@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name = "viewdeal", schema = "agentstvo")
 public class ViewdealEntity extends Model {
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idViewDeal", nullable = false)
     private long idViewDeal;
 

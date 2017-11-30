@@ -16,12 +16,12 @@
 			<td><c:out value="${viewdeall.idViewDeal}"/></td>
 			<td><c:out value="${viewdeall.viewDeal}"/></td>
 
-			<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${viewdeall.idViewDeal}"/>">Редактировать</a></td>
-			<td><a href = "WorkTaskController?action=delete_viewdeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Удалить</a></td>
+			<td><a href = "WorkTaskController?action=add_viewDeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Редактировать</a></td>
+			<td><a href = "WorkTaskController?action=delete_viewDeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Удалить</a></td>
 		</tr>
 	</c:forEach>
 
-	<form action ="/webapp/addViewdeal.jsp">
+	<form action ="addViewDeal.jsp">
 		<br></br>
 		<button type="submit" class="btn btn-primary  btn-md">Добавить</button>
 	</form>

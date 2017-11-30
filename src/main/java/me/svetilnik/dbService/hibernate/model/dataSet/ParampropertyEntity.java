@@ -3,7 +3,6 @@ package me.svetilnik.dbService.hibernate.model.dataSet;
 import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -11,7 +10,7 @@ import java.util.Set;
 public class ParampropertyEntity extends Model {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(name = "idParamProperty", nullable = false)
     private long idParamProperty;
 

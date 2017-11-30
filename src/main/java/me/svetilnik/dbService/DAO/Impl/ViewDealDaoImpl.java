@@ -37,7 +37,7 @@ public class ViewDealDaoImpl {
 
     public void insert(ViewdealEntity entity) throws IOException {
         entityManager.getTransaction().begin();
-        entityManager.merge(entity);
+        entityManager.persist(entity);
         entityManager.getTransaction().commit();
         //        entityManager.persist(entity);
 
