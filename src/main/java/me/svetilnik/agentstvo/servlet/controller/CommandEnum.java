@@ -9,6 +9,15 @@ public enum  CommandEnum {
     STREETS {{
         this.command = new StreetsCommand();
     }},
+    ADD_STREETS {{
+        this.command = new AddStreetsCommand();
+    }},
+    SAVE_STREETS {{
+        this.command = new SaveStreetsCommand();
+    }},
+    EDIT_STREETS {{
+        this.command = new EditStreetsCommand();
+    }},
     POSITIONS {{
         this.command = new PositionsCommand();
     }},
@@ -25,6 +34,12 @@ public enum  CommandEnum {
 
     ADD_VIEWDEAL {{
         this.command = new AddViewDealCommand();
+    }},
+    EDIT_VIEWDEAL {{
+        this.command = new EditViewDealCommand();
+    }},
+    SAVE_VIEWDEAL {{
+        this.command = new SaveViewDealCommand();
     }},
     CLIENTS {{
         this.command = new ClientsCommand();

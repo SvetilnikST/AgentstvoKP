@@ -6,10 +6,20 @@ public interface PageURL {
     String LOGIN_ACTION = "/WorkTaskController?action=login";
     String ERROR_PAGE = "/error.jsp";
 
+    String VIEWDEAL_PAGE = "/list_viewdeal.jsp";
+    String LIST_VIEWDEAL_ACTION = "/WorkTaskController?action=viewDeal";
+    String DELETE_VIEWDEAL = "/WorkTaskController?action=delete_viewDeal&id";
+    String ADD_VIEWDEAL_ACTION = "/WorkTaskController?action=add_viewDeal";
+    String ADD_VIEWDEAL = "/addViewDeal.jsp";
+    String SAVE_VIEWDEAL_ACTION = "/WorkTaskController?action=save_viewDeal";
+
+
     String STREETS_PAGE = "/list_streets.jsp";
     String LIST_STREETS_ACTION = "/WorkTaskController?action=streets";
-    String INSERT_OR_EDIT_STREETS = "/streets.jsp";
     String DELETE_STREETS = "/WorkTaskController?action=delete_streets&id";
+    String ADD_STREETS_ACTION = "/WorkTaskController?action=add_streets";
+    String ADD_STREETS = "/addStreets.jsp";
+    String SAVE_STREETS_ACTION = "/WorkTaskController?action=save_streets";
 
 
     String LOCATION_PAGE = "/list_location.jsp";
@@ -24,10 +34,7 @@ public interface PageURL {
     String LIST_POSITIONS_ACTION = "/WorkTaskController?action=positions";
     String DELETE_POSITOINS = "/WorkTaskController?action=delete_positions&id";
 
-    String VIEWDEAL_PAGE = "/list_viewdeal.jsp";
-    String LIST_VIEWDEAL_ACTION = "/WorkTaskController?action=viewDeal";
-    String DELETE_VIEWDEAL = "/WorkTaskController?action=delete_viewDeal&id";
-    String ADD_VIEWDEAL = "/WorkTaskController?action=add_viewDeal";
+
 
 
     String CLIENTS_PAGE = "/list_clients.jsp";

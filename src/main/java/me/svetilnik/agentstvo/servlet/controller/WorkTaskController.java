@@ -18,6 +18,8 @@ public class WorkTaskController extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException{
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
 
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(req);

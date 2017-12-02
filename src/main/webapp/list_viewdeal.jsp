@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <br>
+<a href="WorkTaskController?action=add_viewDeal">Добавить</a>
 <table  class="table table-striped">
 	<thead>
 	<tr>
@@ -16,15 +17,11 @@
 			<td><c:out value="${viewdeall.idViewDeal}"/></td>
 			<td><c:out value="${viewdeall.viewDeal}"/></td>
 
-			<td><a href = "WorkTaskController?action=add_viewDeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Редактировать</a></td>
+			<td><a href = "WorkTaskController?action=edit_viewDeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Редактировать</a></td>
 			<td><a href = "WorkTaskController?action=delete_viewDeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Удалить</a></td>
 		</tr>
 	</c:forEach>
 
-	<form action ="addViewDeal.jsp">
-		<br></br>
-		<button type="submit" class="btn btn-primary  btn-md">Добавить</button>
-	</form>
 	</tbody>
 </table>
 
