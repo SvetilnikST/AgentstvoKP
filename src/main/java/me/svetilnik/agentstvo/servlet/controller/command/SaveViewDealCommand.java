@@ -4,7 +4,6 @@ import me.svetilnik.agentstvo.servlet.controller.ActionCommand;
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
 import me.svetilnik.dbService.DAO.Impl.ViewDealDaoImpl;
 import me.svetilnik.dbService.hibernate.model.dataSet.ViewdealEntity;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

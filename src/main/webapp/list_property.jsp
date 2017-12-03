@@ -3,14 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <br>
+<a href="WorkTaskController?action=add_property">Добавить</a>
 <table  class="table table-striped">
 	<thead>
 	<tr>
 		<th>Id </th>
-		<th>Недвижимость</th>
-		<th>Площадь</th>
-
-		<th></th>
+		<th>Вид недвижимости</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -19,15 +17,11 @@
 			<td><c:out value="${propert.idProperty}"/></td>
 			<td><c:out value="${propert.property}"/></td>
 
-			<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${propert.idProperty}"/>">Редактировать</a></td>
-			<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${propert.idProperty}"/>">Удалить</a></td>
+			<td><a href = "WorkTaskController?action=edit_property&id=<c:out value = "${propert.idProperty}"/>">Редактировать</a></td>
+			<td><a href = "WorkTaskController?action=delete_property&id=<c:out value = "${propert.idProperty}"/>">Удалить</a></td>
 		</tr>
 	</c:forEach>
 
-	<form action ="/webapp/new_location.jsp">
-		<br></br>
-		<button type="submit" class="btn btn-primary  btn-md">Добавить</button>
-	</form>
 	</tbody>
 </table>
 

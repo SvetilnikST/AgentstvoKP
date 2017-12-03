@@ -16,7 +16,7 @@ public class SaveStreetsCommand implements ActionCommand {
         String idStreets = req.getParameter("id");
         String streetsName = req.getParameter("streetsName");
         String mode = req.getParameter("mode");
-        StreetsEntity streetsEntity=null;
+        StreetsEntity streetsEntity = null;
         if( !idStreets.isEmpty() && mode.equalsIgnoreCase("edit")) {
             streetsEntity = streetsDao.getById(Long.parseLong(idStreets));
             streetsEntity.setStreetsName(streetsName);

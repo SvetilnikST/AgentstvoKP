@@ -20,7 +20,7 @@
             <input type = "hidden" name="mode" value="<c:out value="${mode}"/>"/>
             <input type = "hidden" name="id"  value="<c:out value="${id}"/>"/>
         <div class="form-group"> <label>Название</label>
-        <input type="text" name="streets" class="form-control" placeholder="Введите название"  value="<c:out value="${streets}"/>"/> </div>
+        <input type="text" name="streetsName" class="form-control" placeholder="Введите название"  value="<c:out value="${streets}"/>"/> </div>
      <button type="submit" class="btn btn-primary">Добавить</button>
         </form>
         </div>

@@ -23,7 +23,7 @@ public class EditStreetsCommand implements ActionCommand {
         }
 
         req.setAttribute("id", streetsEntity.getIdStreets());
-        req.setAttribute("streetsName", streetsEntity.getStreetsName());
+        req.setAttribute("streets", streetsEntity.getStreetsName());
         req.setAttribute("mode", "edit");
 
         return PageURL.ADD_STREETS;

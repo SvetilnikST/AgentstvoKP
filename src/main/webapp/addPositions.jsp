@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <head>
-    <title>Добавление вида сделки</title>
+    <title>Добавление должности</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
@@ -14,14 +14,14 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-6">
-        <h1 class="text-gray-dark">Добавить вид сделки</h1>
+        <h1 class="text-gray-dark">Добавить должность</h1>
         <form name="loginForm" method="POST" action="WorkTaskController">
-            <input type = "hidden" name="action" value="save_viewdeal"/>
+            <input type = "hidden" name="action" value="save_positions"/>
             <input type = "hidden" name="mode" value="<c:out value="${mode}"/>"/>
             <input type = "hidden" name="id"  value="<c:out value="${id}"/>"/>
         <div class="form-group"> <label>Наименование</label>
-        <input type="text" name="viewdeal" class="form-control" placeholder="Введите наименование"  value="<c:out value="${viewdeal}"/>"/> </div>
-     <button type="submit" class="btn btn-primary">Сохранить</button>
+        <input type="text" name="positions" class="form-control" placeholder="Введите наименование"  value="<c:out value="${positions}"/>"/> </div>
+     <button type="submit" class="btn btn-primary">Добавить</button>
         </form>
         </div>
     </div>
