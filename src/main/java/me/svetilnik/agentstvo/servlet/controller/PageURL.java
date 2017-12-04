@@ -13,7 +13,6 @@ public interface PageURL {
     String ADD_VIEWDEAL = "/addViewDeal.jsp";
     String SAVE_VIEWDEAL_ACTION = "/WorkTaskController?action=save_viewDeal";
 
-
     String STREETS_PAGE = "/list_streets.jsp";
     String LIST_STREETS_ACTION = "/WorkTaskController?action=streets";
     String DELETE_STREETS = "/WorkTaskController?action=delete_streets&id";
@@ -42,10 +41,16 @@ public interface PageURL {
     String ADD_CLIENTS = "/addClients.jsp";
     String SAVE_CLIENTS_ACTION = "/WorkTaskController?action=save_clients";
 
-
     String LOCATION_PAGE = "/list_location.jsp";
     String LIST_LOCATION_ACTION = "/WorkTaskController?action=location";
     String DELETE_LOCATION = "/WorkTaskController?action=delete_location&id";
+    String ADD_LOCATION_ACTION = "/WorkTaskController?action=add_location";
+    String ADD_LOCATION = "/addLocation.jsp";
+    String SAVE_LOCATION_ACTION = "/WorkTaskController?action=save_location";
+
+
+
+
 
     String DEAL_PAGE = "/list_deal.jsp";
     String LIST_DEAL_ACTION = "/WorkTaskController?action=deal";

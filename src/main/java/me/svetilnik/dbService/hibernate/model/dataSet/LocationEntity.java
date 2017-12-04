@@ -11,7 +11,6 @@ public class LocationEntity extends Model {
 
 
     @Id
-//    @GeneratedValue
     @Column(name = "idLocation", nullable = false)
     private long idLocation;
 
@@ -53,7 +52,7 @@ public class LocationEntity extends Model {
         return locationFlat;
     }
 
-    public void setLocationFlat(String locationName) {
+    public void setLocationFlat(String locationFlat) {
         this.locationFlat = locationFlat;
     }
 

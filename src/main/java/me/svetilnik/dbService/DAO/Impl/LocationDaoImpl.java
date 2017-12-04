@@ -1,10 +1,7 @@
 package me.svetilnik.dbService.DAO.Impl;
 
-
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.LocationEntity;
-
-
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
@@ -36,7 +33,7 @@ public class LocationDaoImpl {
 
     public void insert(LocationEntity entity) throws IOException {
         entityManager.getTransaction().begin();
-        entityManager.merge(entity);
+        entityManager.persist(entity);
         entityManager.getTransaction().commit();
     }
 
@@ -48,7 +45,9 @@ public class LocationDaoImpl {
 
 
     public void update(LocationEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
 

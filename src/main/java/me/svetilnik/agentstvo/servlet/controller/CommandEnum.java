@@ -92,6 +92,23 @@ public enum  CommandEnum {
         this.command = new SaveClientsCommand();
     }},
 
+    //Команды таблица расположений
+    LOCATION {{
+        this.command = new LocationCommand();
+    }},
+    DELETE_LOCATION {{
+        this.command = new DeleteLocationCommand();
+    }},
+    ADD_LOCATION {{
+        this.command = new AddLocationCommand();
+    }},
+    EDIT_LOCATION {{
+        this.command = new EditLocationCommand();
+    }},
+    SAVE_LOCATION {{
+        this.command = new SaveLocationCommand();
+    }},
+
 
 
     DEAL {{
@@ -101,12 +118,7 @@ public enum  CommandEnum {
         this.command = new DeleteDealCommand();
     }},
 
-    LOCATION {{
-        this.command = new LocationCommand();
-    }},
-    DELETE_LOCATION {{
-        this.command = new DeleteLocationCommand();
-    }},
+
 
     PARAMPROPERTY {{
         this.command = new ParamPropertyCommand();
