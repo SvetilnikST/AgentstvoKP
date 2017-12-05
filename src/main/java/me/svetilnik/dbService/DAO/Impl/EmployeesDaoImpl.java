@@ -37,7 +37,6 @@ public class EmployeesDaoImpl {
 
 
     public void insert(EmployeesEntity entity) throws IOException {
-
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
@@ -51,7 +50,9 @@ public class EmployeesDaoImpl {
 
 
     public void update(EmployeesEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
     public int getNumOfRecords(String tableName) throws IOException {

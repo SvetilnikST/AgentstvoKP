@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <br>
+<a href="WorkTaskController?action=add_employees">Добавить</a>
 <table  class="table table-striped">
 	<thead>
     	<thead>
@@ -37,8 +38,10 @@
 					<td><c:out value="${employee.password}"/></td>
 					<td><c:out value="${employee.solt}"/></td>
 					<td><c:out value="${employee.status}"/></td>
-    				<td><a href = "WorkTaskController?action=delete_worktask&id=<c:out value = "${locationn.idLocation}"/>">Delete</a></td>
-    			</tr>
+					<td><a href = "WorkTaskController?action=edit_employees&id=<c:out value = "${employee.idEmployees}"/>">Редактировать</a></td>
+					<td><a href = "WorkTaskController?action=delete_employees&id=<c:out value = "${employee.idEmployees}"/>">Удалить</a></td>
+
+				</tr>
     		</c:forEach>
     	</tbody>
 </table>

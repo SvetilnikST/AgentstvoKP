@@ -109,6 +109,24 @@ public enum  CommandEnum {
         this.command = new SaveLocationCommand();
     }},
 
+    //Команды таблица сотрудники
+    EMPLOYEES {{
+        this.command = new EmployeesCommand();
+    }},
+    DELETE_EMPLOYEES {{
+        this.command = new DeleteEmployeesCommand();
+    }},
+    ADD_EMPLOYEES {{
+        this.command = new AddEmployeesCommand();
+    }},
+    EDIT_EMPLOYEES {{
+        this.command = new EditEmployeesCommand();
+    }},
+    SAVE_EMPLOYEES {{
+        this.command = new SaveEmployeesCommand();
+    }},
+
+
 
 
     DEAL {{
@@ -123,12 +141,7 @@ public enum  CommandEnum {
     PARAMPROPERTY {{
         this.command = new ParamPropertyCommand();
     }},
-    EMPLOYEES {{
-        this.command = new EmployeesCommand();
-    }},
-    DELETE_EMPLOYEES {{
-        this.command = new DeleteEmployeesCommand();
-    }},
+
     ;
 
     ActionCommand command;

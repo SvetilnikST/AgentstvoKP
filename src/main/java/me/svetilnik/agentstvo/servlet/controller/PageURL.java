@@ -48,7 +48,12 @@ public interface PageURL {
     String ADD_LOCATION = "/addLocation.jsp";
     String SAVE_LOCATION_ACTION = "/WorkTaskController?action=save_location";
 
-
+    String EMPLOYEES_PAGE = "/list_employees.jsp";
+    String LIST_EMPLOYEES_ACTION = "/WorkTaskController?action=employees";
+    String DELETE_EMPLOYEES = "/WorkTaskController?action=delete_employees&id";
+    String ADD_EMPLOYEES_ACTION = "/WorkTaskController?action=add_employees";
+    String ADD_EMPLOYEES = "/addEmployees.jsp";
+    String SAVE_EMPLOYEES_ACTION = "/WorkTaskController?action=save_employees";
 
 
 
@@ -56,9 +61,7 @@ public interface PageURL {
     String LIST_DEAL_ACTION = "/WorkTaskController?action=deal";
     String DELETE_DEAL = "/WorkTaskController?action=delete_deal&id";
 
-    String EMPLOYEES_PAGE = "/list_employees.jsp";
-    String LIST_EMPLOYEES_ACTION = "/WorkTaskController?action=employees";
-    String DELETE_EMPLOYEES = "/WorkTaskController?action=delete_employees&id";
+
 
     String PARAMPROPERTY_PAGE = "/list_paramProperty.jsp";
     String LIST_PARAMPROPERTY_ACTION = "/WorkTaskController?action=paramProperty";
