@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <br>
+<a href="WorkTaskController?action=add_deal">Добавить</a>
+<br>
 	<table  class="table table-striped">
     	<thead>
     		<tr>
@@ -21,29 +23,26 @@
     		</tr>
     	</thead>
     	<tbody>
-    		<c:forEach items="${deal}" var = "deall">
+    		<c:forEach items="${deal}" var = "deal">
     			<tr>
-    				<td><c:out value="${deall.idDeal}"/></td>
-					<td><c:out value="${deall.dateDeal}"/></td>
-					<td><c:out value="${deall.clientsEntity1.snmClients}"/></td>
-					<td><c:out value="${deall.clientsEntity2.snmClients}"/></td>
+    				<td><c:out value="${deal.idDeal}"/></td>
+					<td><c:out value="${deal.dateDeal}"/></td>
+					<td><c:out value="${deal.clientsEntity1.snmClients}"/></td>
+					<td><c:out value="${deal.clientsEntity2.snmClients}"/></td>
 
-					<td><c:out value="${deall.viewdealEntity.viewDeal}"/></td>
-					<td><c:out value="${deall.propertyEntity.property}"/></td>
-					<td><c:out value="${deall.parampropertyEntity.paramPropertyArea}"/></td>
-					<td><c:out value="${deall.employeesEntity.employeesSnm}"/></td>
-					<td><c:out value="${deall.dealSum}"/></td>
-					<td><c:out value="${deall.dealPercent}"/></td>
+					<td><c:out value="${deal.viewdealEntity.viewDeal}"/></td>
+					<td><c:out value="${deal.propertyEntity.property}"/></td>
+					<td><c:out value="${deal.parampropertyEntity.paramPropertyArea}"/></td>
+					<td><c:out value="${deal.employeesEntity.employeesSnm}"/></td>
+					<td><c:out value="${deal.dealSum}"/></td>
+					<td><c:out value="${deal.dealPercent}"/></td>
 
-					<td><a href = "WorkTaskController?action=add_viewdeal&id=<c:out value = "${deall.idDeal}"/>">Редактировать</a></td>
-				<td><a href = "WorkTaskController?action=delete_deal&id=<c:out value = "${deall.idDeal}"/>">Удалить</a></td>
+					<td><a href = "WorkTaskController?action=add_deal&id=<c:out value = "${deal.idDeal}"/>">Редактировать</a></td>
+				<td><a href = "WorkTaskController?action=delete_deal&id=<c:out value = "${deal.idDeal}"/>">Удалить</a></td>
     			</tr>
     		</c:forEach>
 
-			<form action ="/webapp/new_deal.jsp">
-				<br></br>
-				<button type="submit" class="btn btn-primary  btn-md">Добавить</button>
-			</form>
+
     	</tbody>
     </table>
 

@@ -55,15 +55,17 @@ public interface PageURL {
     String ADD_EMPLOYEES = "/addEmployees.jsp";
     String SAVE_EMPLOYEES_ACTION = "/WorkTaskController?action=save_employees";
 
-
+    String PARAMPOPERTY_PAGE = "/list_paramproperty.jsp";
+    String LIST_PARAMPOPERTY_ACTION = "/WorkTaskController?action=paramProperty";
+    String DELETE_PARAMPOPERTY = "/WorkTaskController?action=delete_paramProperty&id";
+    String ADD_PARAMPOPERTY_ACTION = "/WorkTaskController?action=add_paramProperty";
+    String ADD_PARAMPOPERTY= "/addParamproperty.jsp";
+    String SAVE_PARAMPOPERTY_ACTION = "/WorkTaskController?action=save_paramProperty";
 
     String DEAL_PAGE = "/list_deal.jsp";
     String LIST_DEAL_ACTION = "/WorkTaskController?action=deal";
     String DELETE_DEAL = "/WorkTaskController?action=delete_deal&id";
-
-
-
-    String PARAMPROPERTY_PAGE = "/list_paramProperty.jsp";
-    String LIST_PARAMPROPERTY_ACTION = "/WorkTaskController?action=paramProperty";
-
+    String ADD_DEAL_ACTION = "/WorkTaskController?action=add_deal";
+    String ADD_DEAL= "/addDeal.jsp";
+    String SAVE_DEAL_ACTION = "/WorkTaskController?action=save_deal";
 }

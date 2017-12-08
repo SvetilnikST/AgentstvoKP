@@ -126,22 +126,39 @@ public enum  CommandEnum {
         this.command = new SaveEmployeesCommand();
     }},
 
+    //Команды таблица параметры недвижимости
+    PARAMPROPERTY {{
+        this.command = new ParamPropertyCommand();
+    }},
+    DELETE_PARAMPROPERTY {{
+        this.command = new DeleteParamPropertyCommand();
+    }},
+    ADD_PARAMPROPERTY {{
+        this.command = new AddParamPropertyCommand();
+    }},
+    EDIT_PARAMPROPERTY {{
+        this.command = new EditParamPropertyCommand();
+    }},
+    SAVE_PARAMPROPERTY {{
+        this.command = new SaveParamPropertyCommand();
+    }},
 
-
-
+    //Команды таблица сделки
     DEAL {{
         this.command = new DealCommand();
     }},
     DELETE_DEAL {{
         this.command = new DeleteDealCommand();
     }},
-
-
-
-    PARAMPROPERTY {{
-        this.command = new ParamPropertyCommand();
+    ADD_DEAL {{
+        this.command = new AddDealCommand();
     }},
-
+    EDIT_DEAL {{
+        this.command = new EditDealCommand();
+    }},
+    SAVE_DEAL {{
+        this.command = new SaveDealCommand();
+    }},
     ;
 
     ActionCommand command;

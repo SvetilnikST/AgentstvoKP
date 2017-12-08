@@ -10,7 +10,6 @@ import java.util.Set;
 public class ParampropertyEntity extends Model {
 
     @Id
-//    @GeneratedValue
     @Column(name = "idParamProperty", nullable = false)
     private long idParamProperty;
 

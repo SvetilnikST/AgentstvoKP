@@ -24,8 +24,8 @@ public class SaveLocationCommand implements ActionCommand {
         String locationHouse = req.getParameter("locationHouse");
         String locationCorps = req.getParameter("locationCorps");
         String locationFlat = req.getParameter("locationFlat");
-
         String mode = req.getParameter("mode");
+
         LocationEntity locationEntity = null;
         StreetsEntity selStreet = streetsDao.getById(Long.parseLong(locationStreet));
         if( !idLocation.isEmpty() && mode.equalsIgnoreCase("edit")) {
