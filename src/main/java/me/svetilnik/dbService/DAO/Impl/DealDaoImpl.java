@@ -1,23 +1,15 @@
 package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
-import me.svetilnik.dbService.hibernate.model.dataSet.ClientsEntity;
 import me.svetilnik.dbService.hibernate.model.dataSet.DealEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
 public class DealDaoImpl {
-    private Session session = null;
     private EntityManager entityManager = null;
 
-
     public DealDaoImpl(){
-        session = null;
         entityManager = HibernateUtilFactory.getEntityManager();
     }
 
@@ -30,12 +22,13 @@ public class DealDaoImpl {
 
 
     public DealEntity getById(long id) throws IOException {
-        Criteria criteria;
-        criteria = session.createCriteria(ClientsEntity.class);
-        criteria.add(Restrictions.eq("idDeal",id));
-        return (DealEntity) criteria.uniqueResult();
+        DealEntity result = (DealEntity) entityManager.createQuery(
+                "select l from DealEntity l " +
+                        "where l.idDeal like :id ")
+                .setParameter("id", id)
+                .getSingleResult();
+        return result;
     }
-
 
     public void insert(DealEntity entity) throws IOException {
         entityManager.getTransaction().begin();
@@ -56,9 +49,9 @@ public class DealDaoImpl {
 
 
     public int getNumOfRecords(String tableName) throws IOException {
-        Criteria criteria;
-
-        criteria = session.createCriteria(DealEntity.class);
+//        Criteria criteria;
+//
+//        criteria = session.createCriteria(DealEntity.class);
 
         throw new UnsupportedOperationException("Not supported yet.");
 //        return 0;

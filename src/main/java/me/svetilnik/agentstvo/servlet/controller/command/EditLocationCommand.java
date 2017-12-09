@@ -30,6 +30,7 @@ public class EditLocationCommand implements ActionCommand {
         req.setAttribute("id", locationEntity.getIdLocation());
         req.setAttribute("locationEntity", locationEntity);
         req.setAttribute("streetsEntities", streetsEntities);
+
         req.setAttribute("curStreet", locationEntity.getStreetsEntity().getIdStreets());
 
         req.setAttribute("mode", "edit");

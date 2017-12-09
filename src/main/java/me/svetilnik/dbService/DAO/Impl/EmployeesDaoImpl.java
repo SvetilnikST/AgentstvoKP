@@ -2,10 +2,7 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
@@ -13,7 +10,7 @@ import java.util.List;
 public class EmployeesDaoImpl {
     private EntityManager entityManager = null;
 
-    private Session session;
+//    private Session session;
     public EmployeesDaoImpl(){
         entityManager = HibernateUtilFactory.getEntityManager();
     }

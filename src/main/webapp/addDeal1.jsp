@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-<%--<jsp:include page="includ/header.jsp"></jsp:include>--%>
+<jsp:include page="includ/header.jsp"></jsp:include>
 <head>
     <title>Добавление расположения</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +13,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
         <div class="col-md-6">
-            <h1 class="text-gray-dark">Добавить расположение</h1>
+            <h1 class="text-gray-dark">Добавить сделку</h1>
             <form name="loginForm" method="POST" action="WorkTaskController">
                 <input type="hidden" name="action" value="save_deal"/>
                 <input type="hidden" name="mode" value="<c:out value="${mode}"/>"/>
@@ -24,8 +23,7 @@
 
                     <div class="form-group"><label>Дата сделки</label>
                         <input type="date" name="dateDeal" class="form-control" placeholder="Введите дату"
-                               value="<c:out value="${dealEntity.dateDeal}"/>"/>
-                    </div>
+                               value="<c:out value="${dealEntity.dateDeal}"/>"/></div>
 
                     <div class="form-group"><label>Поставщик</label>
                         <select name="dealClient1" class="form-control">
@@ -76,6 +74,7 @@
                         </select>
                     </div>
 
+
                     <div class="form-group"><label>Параметры</label>
                         <select name="dealPropertyParam" class="form-control">
                             <c:forEach items="${parampropertyEntities}" var="paramproperty">
@@ -91,7 +90,7 @@
                                     описание: <c:out value="${paramproperty.paramPropertyDescription}"/>
                                 </option>
                             </c:forEach>
-                        </select>
+                        </select>123
                     </div>
 
                     <div class="form-group"><label>Содрудник</label>
@@ -101,10 +100,11 @@
                                         <c:if test="${employees.idEmployees eq curEmployees}">
                                             selected
                                         </c:if>
-                                ><c:out value="${employees.employeesSnm}"/></option>
+                                ><c:out value="${employees.employeesSNM}"/></option>
                             </c:forEach>
                         </select>
                     </div>
+
                     <div class="form-group"><label>Сумма сделки</label>
                         <input type="text" name="dealSum" class="form-control" placeholder=""
                                value="<c:out value="${dealEntity.dealSum}"/>"/>
@@ -116,11 +116,9 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Сохранить</button>
-
-                </div>
             </form>
         </div>
     </div>
-
+</div>
 
 <jsp:include page="includ/footer.jsp"></jsp:include>

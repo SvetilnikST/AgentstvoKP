@@ -39,6 +39,7 @@ public class SaveEmployeesCommand implements ActionCommand {
 
         EmployeesEntity employeesEntity = null;
         PositionsEntity selPosition = positionsDao.getById(Long.parseLong(position));
+
         if( !idEmployees.isEmpty() && mode.equalsIgnoreCase("edit")) {
             employeesEntity = employeesDao.getById(Long.parseLong(idEmployees));
             employeesEntity.setEmployeesSnm(employeesSNM);

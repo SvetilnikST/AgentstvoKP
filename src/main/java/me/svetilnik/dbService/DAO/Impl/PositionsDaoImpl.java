@@ -2,10 +2,6 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.PositionsEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;

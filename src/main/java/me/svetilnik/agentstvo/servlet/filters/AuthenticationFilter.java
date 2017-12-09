@@ -3,7 +3,7 @@
 // фильтр прошел ли аутентификацию пльзователь
 
 
-/*package me.svetilnik.agentstvo.servlet.filters;
+package me.svetilnik.agentstvo.servlet.filters;
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
 
 import javax.servlet.*;
@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/*")
+///раскоментировать следующую строку и будет фильтрация
+//@WebFilter("/*")
 public class AuthenticationFilter implements Filter{
 
     @Override
@@ -39,4 +40,4 @@ public class AuthenticationFilter implements Filter{
     public void destroy() {}
 }
 
-*/
+

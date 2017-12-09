@@ -37,7 +37,7 @@
 					<td><c:out value="${deal.dealSum}"/></td>
 					<td><c:out value="${deal.dealPercent}"/></td>
 
-					<td><a href = "WorkTaskController?action=add_deal&id=<c:out value = "${deal.idDeal}"/>">Редактировать</a></td>
+					<td><a href = "WorkTaskController?action=edit_deal&id=<c:out value = "${deal.idDeal}"/>">Редактировать</a></td>
 				<td><a href = "WorkTaskController?action=delete_deal&id=<c:out value = "${deal.idDeal}"/>">Удалить</a></td>
     			</tr>
     		</c:forEach>

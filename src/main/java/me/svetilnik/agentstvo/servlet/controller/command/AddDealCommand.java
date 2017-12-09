@@ -7,6 +7,7 @@ import me.svetilnik.dbService.hibernate.model.dataSet.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -15,6 +16,10 @@ public class AddDealCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 //        DealDaoImpl dealDao = new DealDaoImpl();
+
+        HttpSession session = req.getSession(false);
+//        String user_id =session.getAttribute("user_id").toString();
+        String user_id = "1";
 
         ClientsDaoImpl clientsDao = new ClientsDaoImpl();
         List<ClientsEntity> clientsEntities = clientsDao.getAll(0,0);
@@ -32,6 +37,12 @@ public class AddDealCommand implements ActionCommand {
         EmployeesDaoImpl employeesDao = new EmployeesDaoImpl();
         List<EmployeesEntity> employeesEntities = employeesDao.getAll(0,0);
 
+        String curEmployees = "-1";
+        if (!user_id.isEmpty()){
+            curEmployees = ((Long)employeesDao.getById(Long.parseLong(user_id)).getIdEmployees()).toString();
+        }
+
+
         DealEntity dealEntity = new DealEntity();
 
         req.setAttribute("id", "");
@@ -39,7 +50,7 @@ public class AddDealCommand implements ActionCommand {
         req.setAttribute("clientsEntities", clientsEntities);
         req.setAttribute("viewDealEntities", viewdealEntities);
         req.setAttribute("propertyEntities", propertyEntities);
-        req.setAttribute("paramPropertyEntities", parampropertyEntities);
+        req.setAttribute("parampropertyEntities", parampropertyEntities);
         req.setAttribute("employeesEntities", employeesEntities);
 
         req.setAttribute("curClients1", "-1");
@@ -47,7 +58,7 @@ public class AddDealCommand implements ActionCommand {
         req.setAttribute("curViewDeal", "-1");
         req.setAttribute("curProperty", "-1");
         req.setAttribute("curParamProperty", "-1");
-        req.setAttribute("curEmployees", "-1");
+        req.setAttribute("curEmployees", curEmployees);
 
         req.setAttribute("mode", "create"); //добавлено
         return PageURL.ADD_DEAL;
