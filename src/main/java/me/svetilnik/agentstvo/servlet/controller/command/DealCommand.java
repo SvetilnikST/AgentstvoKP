@@ -18,6 +18,7 @@ public class DealCommand implements ActionCommand {
 
         req.setAttribute("deal", dealEntities);
         req.setAttribute("title", "список сделок");
+        req.setAttribute("markdeal","1");
         return PageURL.DEAL_PAGE;
     }
 }

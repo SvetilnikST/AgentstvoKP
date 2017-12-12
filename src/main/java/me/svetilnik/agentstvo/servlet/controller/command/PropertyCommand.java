@@ -17,6 +17,7 @@ public class PropertyCommand implements ActionCommand {
         List<PropertyEntity> propertyEntities = propertyDao.getAll(0,0);
         req.setAttribute("property", propertyEntities);
         req.setAttribute("title", "Список недвижимости");
+        req.setAttribute("markproperty", "1");
         return PageURL.PROPERTY_PAGE;
     }
 }

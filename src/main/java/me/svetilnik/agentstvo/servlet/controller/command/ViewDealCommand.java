@@ -18,6 +18,8 @@ public class ViewDealCommand implements ActionCommand {
 
         req.setAttribute("viewdeal", viewdealEntities);
         req.setAttribute("title", "Список видов сделок");
+        req.setAttribute("markviewdeal", "1");
+
         return PageURL.VIEWDEAL_PAGE;
     }
 }

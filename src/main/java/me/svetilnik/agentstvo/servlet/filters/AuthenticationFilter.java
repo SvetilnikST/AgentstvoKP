@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 ///раскоментировать следующую строку и будет фильтрация
-//@WebFilter("/*")
+@WebFilter("/*")
 public class AuthenticationFilter implements Filter{
 
     @Override

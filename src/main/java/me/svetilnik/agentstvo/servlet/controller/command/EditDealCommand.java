@@ -18,14 +18,11 @@ public class EditDealCommand implements ActionCommand {
         ClientsDaoImpl clientsDao = new ClientsDaoImpl();
         ViewDealDaoImpl viewDealDao = new ViewDealDaoImpl();
         PropertyDaoImpl propertyDao = new PropertyDaoImpl();
-//        ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
         EmployeesDaoImpl employeesDao = new EmployeesDaoImpl();
 
         List<ClientsEntity> clientsEntities = clientsDao.getAll(0,0);
-//        List<ClientsEntity> clientsEntities2 = clientsDao.getAll(0,0);
         List<ViewdealEntity> viewdealEntities = viewDealDao.getAll(0,0);
         List<PropertyEntity> propertyEntities = propertyDao.getAll(0,0);
-//        List<ParampropertyEntity> parampropertyEntities = paramPropertyDao.getAll(0,0);
         List<EmployeesEntity> employeesEntities = employeesDao.getAll(0,0);
 
         ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
@@ -44,10 +41,8 @@ public class EditDealCommand implements ActionCommand {
         req.setAttribute("dealEntity",dealEntity);
 
         req.setAttribute("clientsEntities", clientsEntities);
-//        req.setAttribute("clientsEntities2", clientsEntities2);
         req.setAttribute("viewDealEntities", viewdealEntities);
         req.setAttribute("propertyEntities", propertyEntities);
-//        req.setAttribute("paramPropertyEntities", parampropertyEntities);
         req.setAttribute("employeesEntities", employeesEntities);
         req.setAttribute("parampropertyEntities", parampropertyEntities);
 

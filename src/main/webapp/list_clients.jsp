@@ -7,14 +7,15 @@
 <table  class="table table-striped">
 	<thead>
 	<tr>
-		<th>Id </th>
-		<th>Клиенты</th>
+		<th>Фамилия имя отчество</th>
+		<th>Пол</th>
+		<th>Паспортные данные</th>
+		<th>Контактный телефон</th>
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach items="${clients}" var = "client">
 		<tr>
-			<td><c:out value="${client.idClients}"/></td>
 			<td><c:out value="${client.snmClients}"/></td>
 			<td><c:out value="${client.floor}"/></td>
 			<td><c:out value="${client.passportClients}"/></td>
@@ -23,6 +24,7 @@
 			<td><a href = "WorkTaskController?action=edit_clients&id=<c:out value = "${client.idClients}"/>">Редактировать</a></td>
 			<td><a href = "WorkTaskController?action=delete_clients&id=<c:out value = "${client.idClients}"/>">Удалить</a></td>
 		</tr>
+
 	</c:forEach>
 
 	</tbody>

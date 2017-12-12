@@ -15,7 +15,6 @@ import java.util.List;
 public class AddDealCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-//        DealDaoImpl dealDao = new DealDaoImpl();
 
         HttpSession session = req.getSession(false);
 //        String user_id =session.getAttribute("user_id").toString();

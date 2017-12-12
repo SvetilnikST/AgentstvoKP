@@ -8,7 +8,6 @@
 	<table  class="table table-striped">
     	<thead>
     		<tr>
-    			<th>Id </th>
     			<th>Дата</th>
 				<th>Поставщик</th>
 				<th>Заказчик</th>
@@ -25,8 +24,7 @@
     	<tbody>
     		<c:forEach items="${deal}" var = "deal">
     			<tr>
-    				<td><c:out value="${deal.idDeal}"/></td>
-					<td><c:out value="${deal.dateDeal}"/></td>
+    				<td><c:out value="${deal.dateDeal}"/></td>
 					<td><c:out value="${deal.clientsEntity1.snmClients}"/></td>
 					<td><c:out value="${deal.clientsEntity2.snmClients}"/></td>
 
@@ -41,9 +39,6 @@
 				<td><a href = "WorkTaskController?action=delete_deal&id=<c:out value = "${deal.idDeal}"/>">Удалить</a></td>
     			</tr>
     		</c:forEach>
-
-
     	</tbody>
     </table>
-
 <jsp:include page="includ/footer.jsp"></jsp:include>

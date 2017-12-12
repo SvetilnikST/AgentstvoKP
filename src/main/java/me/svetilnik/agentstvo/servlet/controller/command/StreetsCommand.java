@@ -17,6 +17,7 @@ import java.util.List;
         List<StreetsEntity> streetsEntities = streetsDao.getAll(0,0);
         req.setAttribute("streets", streetsEntities);
         req.setAttribute("title", "Список улиц");
+        req.setAttribute("markstreets", "1");
         return PageURL.STREETS_PAGE;
     }
 }

@@ -27,7 +27,7 @@ public class WorkTaskController extends HttpServlet {
         if(page!=null){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
             dispatcher.forward(req, resp);
-        } else {
+          } else {
             resp.sendRedirect(PageURL.ERROR_PAGE);
         }
     }

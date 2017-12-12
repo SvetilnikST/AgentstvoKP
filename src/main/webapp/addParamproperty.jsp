@@ -38,8 +38,8 @@
                         квартира: <c:out value="${location.locationFlat}"/>
                     </option>
                 </c:forEach>
-
             </select>
+                <a href="WorkTaskController?action=add_location">Добавить</a>
 
             <div class="form-group"> <label>Этаж</label>
                 <input type="text" name="paramPropertyFloor" class="form-control" placeholder="Введите этаж"  value="<c:out value="${paramPropertyEntity.paramPropertyFloor}"/>"/> </div>

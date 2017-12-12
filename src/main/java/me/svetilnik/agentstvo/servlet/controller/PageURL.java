@@ -6,6 +6,8 @@ public interface PageURL {
     String LOGIN_ACTION = "/WorkTaskController?action=login";
     String ERROR_PAGE = "/error.jsp";
 
+
+
     String VIEWDEAL_PAGE = "/list_viewdeal.jsp";
     String LIST_VIEWDEAL_ACTION = "/WorkTaskController?action=viewDeal";
     String DELETE_VIEWDEAL = "/WorkTaskController?action=delete_viewDeal&id";

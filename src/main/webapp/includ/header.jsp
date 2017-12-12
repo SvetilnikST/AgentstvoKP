@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"></i> ЛогПользователя</a>
+                        <a class="nav-link" href="#"></i> <c:out value="${user}"/></a>
                     </li>
 
                 </ul>
@@ -42,16 +42,48 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" text-white >Сделки</a>
+                        <a class="nav-link
+                            <c:if test="${markdeal eq 1}">
+                                active
+                            </c:if>
+" href="WorkTaskController?action=deal" text-white >Сделки</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Клиенты</a>
+                        <a class="nav-link
+                            <c:if test="${markclients eq 1}">
+                                active
+                            </c:if>
+                        " href="WorkTaskController?action=clients">Клиенты</a>
                     </li>
+
+                    <c:if test="${role eq 'admin'}">
+                        <li class="nav-item">
+                            <a class="nav-link
+                            <c:if test="${markemployees eq 1}">
+                                active
+                            </c:if>
+                        " href="WorkTaskController?action=employees">Сотрудники</a>
+                        </li>
+                    </c:if>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Сотрудники</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Недвижимость</a>
+                        <a class="nav-link
+                            <c:if test="${markviewdeal eq 1}">
+                                active
+                            </c:if>
+
+                            <c:if test="${markstreets eq 1}">
+                                active
+                            </c:if>
+
+                            <c:if test="${markpositions eq 1}">
+                                active
+                            </c:if>
+
+                            <c:if test="${markproperty eq 1}">
+                                active
+                            </c:if>
+
+                  " href="WorkTaskController?action=viewdeal">Cправочники</a>
                     </li>
                 </ul>
                 <form class="form-inline m-0">

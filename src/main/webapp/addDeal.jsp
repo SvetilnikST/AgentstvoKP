@@ -92,6 +92,7 @@
                                 </option>
                             </c:forEach>
                         </select>
+                        <a href="WorkTaskController?action=add_paramproperty">Добавить</a>
                     </div>
 
                     <div class="form-group"><label>Содрудник</label>

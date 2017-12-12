@@ -27,7 +27,7 @@ public class LoginCommand implements ActionCommand {
             session.setAttribute("user_id", dao.getUserId(login));
             session.setAttribute("role", role);
             session.setMaxInactiveInterval(30 * 60);
-            return PageURL.LIST_LOCATION_ACTION;
+            return PageURL.LIST_DEAL_ACTION;
         } else {
             return PageURL.LOGIN_PAGE;
         }

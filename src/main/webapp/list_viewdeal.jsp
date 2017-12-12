@@ -2,19 +2,18 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
+<jsp:include page="includ/directory.jsp"></jsp:include>
 <br>
 <a href="WorkTaskController?action=add_viewDeal">Добавить</a>
 <table  class="table table-striped">
 	<thead>
 	<tr>
-		<th>Id </th>
 		<th>Вид сделки</th>
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach items="${viewdeal}" var = "viewdeall">
 		<tr>
-			<td><c:out value="${viewdeall.idViewDeal}"/></td>
 			<td><c:out value="${viewdeall.viewDeal}"/></td>
 
 			<td><a href = "WorkTaskController?action=edit_viewDeal&id=<c:out value = "${viewdeall.idViewDeal}"/>">Редактировать</a></td>

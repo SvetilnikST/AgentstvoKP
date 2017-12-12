@@ -8,7 +8,6 @@
 	<thead>
     	<thead>
     		<tr>
-    			<th>Id </th>
     			<th>Employees SNM</th>
 				<th>Floor</th>
 				<th>Citizinship</th>
@@ -26,7 +25,6 @@
     	<tbody>
     		<c:forEach items="${employees}" var = "employee">
     			<tr>
-    				<td><c:out value="${employee.idEmployees}"/></td>
 					<td><c:out value="${employee.employeesSnm}"/></td>
     				<td><c:out value="${employee.employeesFloor}"/></td>
 					<td><c:out value="${employee.employeesCitizinship}"/></td>

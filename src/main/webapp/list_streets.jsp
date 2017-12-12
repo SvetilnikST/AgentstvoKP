@@ -2,19 +2,18 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
+<jsp:include page="includ/directory.jsp"></jsp:include>
 <br>
 <a href="WorkTaskController?action=add_streets">Добавить</a>
 <table  class="table table-striped">
 	<thead>
 	<tr>
-		<th>Id </th>
 		<th>Улицы</th>
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach items="${streets}" var = "street">
 		<tr>
-			<td><c:out value="${street.idStreets}"/></td>
 			<td><c:out value="${street.streetsName}"/></td>
 
 			<td><a href = "WorkTaskController?action=edit_streets&id=<c:out value = "${street.idStreets}"/>">Редактировать</a></td>

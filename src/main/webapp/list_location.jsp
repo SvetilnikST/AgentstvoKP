@@ -7,7 +7,6 @@
 <table  class="table table-striped">
 	<thead>
 	<tr>
-		<th>Id </th>
 		<th>Улица</th>
 		<th>Номер дома</th>
 		<th>Корпус</th>
@@ -18,7 +17,6 @@
 	<tbody>
 	<c:forEach items="${location}" var = "locatio">
 		<tr>
-			<td><c:out value="${locatio.idLocation}"/></td>
 			<td><c:out value="${locatio.streetsEntity.streetsName}"/></td>
 			<td><c:out value="${locatio.locationHouse}"/></td>
 			<td><c:out value="${locatio.locationCorps}"/></td>

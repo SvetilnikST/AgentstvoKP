@@ -7,18 +7,15 @@
 <table  class="table table-striped">
     	<thead>
     		<tr>
-    			<th>Id param property </th>
-    			<th>param property area</th>
-				<th>param property location</th>
-				<th>param property floor</th>
-				<th>param property descreption</th>
-    			<th>Action</th>
+    			<th>Площадь</th>
+				<th>Расположение</th>
+				<th>Этаж</th>
+				<th>Описание</th>
     		</tr>
     	</thead>
     	<tbody>
     		<c:forEach items="${paramproperty}" var = "parampropert">
     			<tr>
-    				<td><c:out value="${parampropert.idParamProperty}"/></td>
 					<td><c:out value="${parampropert.paramPropertyArea}"/></td>
     				<td><c:out value="${parampropert.locationEntity.streetsEntity.streetsName}"/></td>
 					<td><c:out value="${parampropert.paramPropertyFloor}"/></td>
