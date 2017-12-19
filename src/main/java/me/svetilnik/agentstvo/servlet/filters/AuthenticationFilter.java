@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-///раскоментировать следующую строку и будет фильтрация
+///раскоментировать следующую строкуy
 @WebFilter("/*")
 public class AuthenticationFilter implements Filter{
 

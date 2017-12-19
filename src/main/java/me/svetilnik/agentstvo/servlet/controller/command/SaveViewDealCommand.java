@@ -14,7 +14,7 @@ public class SaveViewDealCommand implements ActionCommand {
         ViewDealDaoImpl viewdealDao = new ViewDealDaoImpl();
 
         String idViewDeal = req.getParameter("id");
-        String viewDeal = req.getParameter("viewdeal");
+        String viewDeal = req.getParameter("viewDeal");
         String mode = req.getParameter("mode");
         ViewdealEntity viewdealEntity=null;
         if( !idViewDeal.isEmpty() && mode.equalsIgnoreCase("edit")) {

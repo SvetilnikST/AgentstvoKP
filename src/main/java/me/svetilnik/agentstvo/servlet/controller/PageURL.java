@@ -64,6 +64,9 @@ public interface PageURL {
     String ADD_PARAMPOPERTY= "/addParamproperty.jsp";
     String SAVE_PARAMPOPERTY_ACTION = "/WorkTaskController?action=save_paramProperty";
 
+    String ADD_PARAMPOPERTYLIST_ACTION = "/WorkTaskController?action=add_paramPropertyList";
+
+
     String DEAL_PAGE = "/list_deal.jsp";
     String LIST_DEAL_ACTION = "/WorkTaskController?action=deal";
     String DELETE_DEAL = "/WorkTaskController?action=delete_deal&id";

@@ -32,12 +32,12 @@ public class PropertyDaoImpl {
     }
 
     public void insert(PropertyEntity entity) throws IOException {
+        entityManager.getTransaction().begin();
         entityManager.merge(entity);
-
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().commit();
     }
 
-    // хз сработает ли проверить потом!
+
     public void delete(PropertyEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.remove(entity);

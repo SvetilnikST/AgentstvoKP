@@ -2,9 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
-<br>
-<a href="WorkTaskController?action=add_deal">Добавить</a>
-<br>
+<jsp:include page="includ/directoryparam.jsp"></jsp:include>
 	<table  class="table table-striped">
     	<thead>
     		<tr>

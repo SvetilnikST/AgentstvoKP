@@ -15,7 +15,6 @@ public class SavePropertyCommand implements ActionCommand {
 
         String idProperty = req.getParameter("id");
         String property = req.getParameter("property");
-
         String mode = req.getParameter("mode");
         PropertyEntity propertyEntity = null;
         if( !idProperty.isEmpty() && mode.equalsIgnoreCase("edit")) {

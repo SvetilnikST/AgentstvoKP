@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <%--<jsp:include page="includ/header.jsp"></jsp:include>--%>
 <head>
-    <title>Добавление расположения</title>
+    <title>Добавление сделки</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,12 +15,11 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-6">
-            <h1 class="text-gray-dark">Добавить расположение</h1>
+            <h1 class="text-gray-dark">Добавить сделку</h1>
             <form name="loginForm" method="POST" action="WorkTaskController">
                 <input type="hidden" name="action" value="save_deal"/>
                 <input type="hidden" name="mode" value="<c:out value="${mode}"/>"/>
                 <input type="hidden" name="idDeal" value="<c:out value="${dealEntity.idDeal}"/>"/>
-                <div class="form-group"><label>Сделки</label>
 
                     <div class="form-group"><label>Дата сделки</label>
                         <input type="date" name="dateDeal" class="form-control" placeholder="Введите дату"
@@ -92,7 +91,7 @@
                                 </option>
                             </c:forEach>
                         </select>
-                        <a href="WorkTaskController?action=add_paramproperty">Добавить</a>
+
                     </div>
 
                     <div class="form-group"><label>Содрудник</label>
@@ -118,7 +117,8 @@
 
                     <button type="submit" class="btn btn-primary">Сохранить</button>
 
-                </div>
+
+
             </form>
         </div>
     </div>

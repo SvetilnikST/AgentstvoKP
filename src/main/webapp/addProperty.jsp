@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
-<head>
-    <title>Добавление вида недвижимости</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>
-</head>
+<%--<head>--%>
+    <%--<title>Добавление вида недвижимости</title>--%>
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1">--%>
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1">--%>
+    <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">--%>
+    <%--<link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>--%>
+<%--</head>--%>
 
 <div class="container">
     <div class="row">
@@ -20,7 +20,8 @@
             <input type = "hidden" name="mode" value="<c:out value="${mode}"/>"/>
             <input type = "hidden" name="id"  value="<c:out value="${id}"/>"/>
         <div class="form-group"> <label>Наименование</label>
-        <input type="text" name="property" class="form-control" placeholder="Введите наименование"  value="<c:out value="${property}"/>"/> </div>
+        <input type="text" name="property" class="form-control" placeholder="Введите наименование"  value="<c:out value="${property}"/>"/>
+        </div>
      <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
         </div>

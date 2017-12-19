@@ -24,7 +24,6 @@ public class EditPropertyCommand implements ActionCommand {
 
         req.setAttribute("id", propertyEntity.getIdProperty());
         req.setAttribute("property", propertyEntity.getProperty());
-
         req.setAttribute("mode", "edit");
 
         return PageURL.ADD_PROPERTY;

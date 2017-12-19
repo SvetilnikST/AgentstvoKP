@@ -21,7 +21,7 @@
             <input type = "hidden" name="id"  value="<c:out value="${id}"/>"/>
         <div class="form-group"> <label>Наименование</label>
         <input type="text" name="positions" class="form-control" placeholder="Введите наименование"  value="<c:out value="${positions}"/>"/> </div>
-     <button type="submit" class="btn btn-primary">Добавить</button>
+     <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
         </div>
     </div>

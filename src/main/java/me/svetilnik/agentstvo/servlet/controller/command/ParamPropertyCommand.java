@@ -19,6 +19,8 @@ public String execute(HttpServletRequest req, HttpServletResponse resp) throws I
 
     req.setAttribute("paramproperty", parampropertyEntities);
     req.setAttribute("title", "Cписок параметров недвижимости ");
+    req.setAttribute("markparamproperty", "1");
+
     return PageURL.PARAMPOPERTY_PAGE;
 }
 }

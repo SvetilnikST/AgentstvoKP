@@ -46,6 +46,13 @@
                             <c:if test="${markdeal eq 1}">
                                 active
                             </c:if>
+
+                              <c:if test="${marklocation eq 1}">
+                                active
+                            </c:if>
+                              <c:if test="${markparamproperty eq 1}">
+                                active
+                            </c:if>
 " href="WorkTaskController?action=deal" text-white >Сделки</a>
                     </li>
                     <li class="nav-item">
