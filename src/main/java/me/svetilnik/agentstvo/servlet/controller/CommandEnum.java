@@ -7,6 +7,9 @@ public enum  CommandEnum {
         this.command = new LoginCommand();
     }},
 
+    LOGOUT {{
+        this.command = new LogOutCommand();
+    }},
 //Команды таблица виды сделок
     VIEWDEAL {{
         this.command = new ViewDealCommand();
@@ -158,6 +161,9 @@ public enum  CommandEnum {
     }},
     SAVE_DEAL {{
         this.command = new SaveDealCommand();
+    }},
+    REPORT_DEAL {{
+        this.command = new ReportDealCommand();
     }},
     ;
 

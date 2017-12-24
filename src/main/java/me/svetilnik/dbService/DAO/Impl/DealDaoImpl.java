@@ -20,6 +20,23 @@ public class DealDaoImpl {
         return result;
     }
 
+//    public List<DealEntity> getAllViewDeal(int offcet, int limit) throws IOException {
+//        List<DealEntity> result = entityManager.createQuery(
+//                "from DealEntity where id=24" )
+//                .getResultList();
+//        return result;
+//    }
+
+//    public DealEntity getByIdViewDeal(long id) throws IOException {
+//        DealEntity result = (DealEntity) entityManager.createQuery(
+//                "select l from DealEntity l " +
+//                        "where l.idViewDeal like :id ")
+//                .setParameter("id", id)
+//                .getSingleResult();
+//        return result;
+//    }
+
+
 
     public DealEntity getById(long id) throws IOException {
         DealEntity result = (DealEntity) entityManager.createQuery(

@@ -31,7 +31,8 @@
                     </li>
 
                 </ul>
-                <a class="btn navbar-btn ml-2 text-white btn-secondary"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Выйти</a>
+
+                <a href = "WorkTaskController?action=logout" class="btn navbar-btn ml-2 text-white btn-secondary"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Выйти</a>
 
             </div>
         </div>
@@ -92,11 +93,13 @@
 
                   " href="WorkTaskController?action=viewdeal">Cправочники</a>
                     </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="WorkTaskController?action=report_deal">Отчеты</a>
+                    </li>
+
                 </ul>
-                <form class="form-inline m-0">
-                    <input class="form-control mr-2" type="text" placeholder="Поиск">
-                    <button class="btn btn-primary" type="submit">Найти</button>
-                </form>
             </div>
         </div>
     </nav>
