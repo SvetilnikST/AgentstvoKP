@@ -3,7 +3,9 @@ package me.svetilnik.dbService.DAO.Impl;
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.DealEntity;
 import javax.persistence.EntityManager;
+import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 
 public class DealDaoImpl {
@@ -20,23 +22,16 @@ public class DealDaoImpl {
         return result;
     }
 
-//    public List<DealEntity> getAllViewDeal(int offcet, int limit) throws IOException {
-//        List<DealEntity> result = entityManager.createQuery(
-//                "from DealEntity where id=24" )
-//                .getResultList();
-//        return result;
-//    }
 
-//    public DealEntity getByIdViewDeal(long id) throws IOException {
-//        DealEntity result = (DealEntity) entityManager.createQuery(
-//                "select l from DealEntity l " +
-//                        "where l.idViewDeal like :id ")
-//                .setParameter("id", id)
-//                .getSingleResult();
-//        return result;
-//    }
-
-
+    public List<DealEntity> getAllDate(Date firstDate, Date lastDate, int offcet, int limit) throws IOException {
+        List<DealEntity> result = entityManager.createQuery(
+                " select d from DealEntity d " +
+        "where d.dateDeal between :fd and :ld" )
+                .setParameter("fd",firstDate)
+                .setParameter("ld", lastDate)
+                .getResultList();
+        return result;
+    }
 
     public DealEntity getById(long id) throws IOException {
         DealEntity result = (DealEntity) entityManager.createQuery(
@@ -59,18 +54,10 @@ public class DealDaoImpl {
         entityManager.getTransaction().commit();
     }
 
-
     public void update(DealEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-
-    public int getNumOfRecords(String tableName) throws IOException {
-//        Criteria criteria;
-//
-//        criteria = session.createCriteria(DealEntity.class);
-
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
 }

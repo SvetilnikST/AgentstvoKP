@@ -2,10 +2,6 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.PropertyEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
@@ -37,7 +33,6 @@ public class PropertyDaoImpl {
         entityManager.getTransaction().commit();
     }
 
-
     public void delete(PropertyEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.remove(entity);
@@ -45,13 +40,9 @@ public class PropertyDaoImpl {
     }
 
     public void update(PropertyEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-
-    public int getNumOfRecords(String tableName) throws IOException {
-
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
 }

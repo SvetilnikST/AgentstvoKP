@@ -32,7 +32,6 @@ private EntityManager entityManager = null;
         return result;
     }
 
-
     public void insert(ParampropertyEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
@@ -50,12 +49,5 @@ private EntityManager entityManager = null;
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
     }
-
-    public int getNumOfRecords(String tableName) throws IOException {
-
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
-
 
 }

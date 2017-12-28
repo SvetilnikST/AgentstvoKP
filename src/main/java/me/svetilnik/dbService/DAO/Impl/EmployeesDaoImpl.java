@@ -10,7 +10,6 @@ import java.util.List;
 public class EmployeesDaoImpl {
     private EntityManager entityManager = null;
 
-//    private Session session;
     public EmployeesDaoImpl(){
         entityManager = HibernateUtilFactory.getEntityManager();
     }
@@ -32,7 +31,6 @@ public class EmployeesDaoImpl {
         return result;
     }
 
-
     public void insert(EmployeesEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
@@ -45,15 +43,10 @@ public class EmployeesDaoImpl {
         entityManager.getTransaction().commit();
     }
 
-
     public void update(EmployeesEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
     }
 
-    public int getNumOfRecords(String tableName) throws IOException {
-       throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
 }

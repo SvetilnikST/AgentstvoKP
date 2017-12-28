@@ -37,7 +37,7 @@ public class SaveDealCommand implements ActionCommand {
 
         String mode = req.getParameter("mode");
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-DD-mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         DealEntity dealEntity = null;
 
@@ -61,8 +61,8 @@ public class SaveDealCommand implements ActionCommand {
             dealEntity.setPropertyEntity(selProperty);
             dealEntity.setParampropertyEntity(selPropertyParam);
             dealEntity.setEmployeesEntity(selEmployee);
-            dealEntity.setDealSum(Integer.parseInt(dealSum));
-            dealEntity.setDealPercent(Integer.parseInt(dealPercent));
+            dealEntity.setDealSum(Double.parseDouble(dealSum));
+            dealEntity.setDealPercent(Double.parseDouble(dealPercent));
 
             dealDao.update(dealEntity);
         }else {

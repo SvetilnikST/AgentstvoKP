@@ -27,28 +27,22 @@ public class PositionsDaoImpl {
         return result;
     }
 
-
     public void insert(PositionsEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
     }
 
-    // хз сработает ли проверить потом!
     public void delete(PositionsEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.remove(entity);
         entityManager.getTransaction().commit();
     }
 
-
     public void update(PositionsEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-
-    public int getNumOfRecords(String tableName) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
 }

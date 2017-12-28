@@ -20,7 +20,6 @@ public class ViewDealDaoImpl {
         return result;
     }
 
-
     public ViewdealEntity getById(long id) throws IOException {
         ViewdealEntity result = (ViewdealEntity) entityManager.createQuery(
                 "select l from ViewdealEntity l " +
@@ -30,13 +29,11 @@ public class ViewDealDaoImpl {
         return result;
     }
 
-
     public void insert(ViewdealEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
     }
-
 
     public void delete(ViewdealEntity entity) throws IOException {
         entityManager.getTransaction().begin();
@@ -44,15 +41,10 @@ public class ViewDealDaoImpl {
         entityManager.getTransaction().commit();
  }
 
-
     public void update(ViewdealEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
-
-    public int getNumOfRecords(String tableName) throws IOException {
-
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
 }

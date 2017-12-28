@@ -74,6 +74,7 @@ public interface PageURL {
     String ADD_DEAL= "/addDeal.jsp";
     String SAVE_DEAL_ACTION = "/WorkTaskController?action=save_deal";
 
+    String REPORT_DEAL_PAGE = "/report_deal.jsp";
     String REPORT_DEAL_ACTION = "/WorkTaskController?action=report_deal";
 
 }

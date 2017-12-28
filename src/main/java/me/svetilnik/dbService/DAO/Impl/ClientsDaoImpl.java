@@ -2,10 +2,6 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.ClientsEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
@@ -40,10 +36,9 @@ public class ClientsDaoImpl {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
-//        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    // хз сработает ли проверить потом!
+
     public void delete(ClientsEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.remove(entity);
@@ -52,12 +47,8 @@ public class ClientsDaoImpl {
 
 
     public void update(ClientsEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-
-    public int getNumOfRecords(String tableName) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 }

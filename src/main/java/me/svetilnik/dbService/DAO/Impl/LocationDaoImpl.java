@@ -30,7 +30,6 @@ public class LocationDaoImpl {
         return result;
     }
 
-
     public void insert(LocationEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
@@ -49,13 +48,5 @@ public class LocationDaoImpl {
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
     }
-
-
-    public int getNumOfRecords(String tableName) throws IOException {
-
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
-    }
-
 
 }

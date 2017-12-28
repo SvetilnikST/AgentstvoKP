@@ -21,7 +21,6 @@ private EntityManager entityManager = null;
         return result;
     }
 
-
     public StreetsEntity getById(long id) throws IOException {
         StreetsEntity result = (StreetsEntity) entityManager.createQuery(
                 "select l from StreetsEntity l " +
@@ -30,7 +29,6 @@ private EntityManager entityManager = null;
                 .getSingleResult();
         return result;
     }
-
 
     public void insert(StreetsEntity entity) throws IOException {
         entityManager.getTransaction().begin();
@@ -44,14 +42,9 @@ private EntityManager entityManager = null;
         entityManager.getTransaction().commit();
     }
 
-
     public void update(StreetsEntity entity) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-
-    public int getNumOfRecords(String tableName) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
-//        return 0;
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 }
