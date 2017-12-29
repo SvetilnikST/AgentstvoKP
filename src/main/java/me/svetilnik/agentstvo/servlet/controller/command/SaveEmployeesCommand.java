@@ -40,38 +40,40 @@ public class SaveEmployeesCommand implements ActionCommand {
         EmployeesEntity employeesEntity = null;
         PositionsEntity selPosition = positionsDao.getById(Long.parseLong(position));
 
-        if( !idEmployees.isEmpty() && mode.equalsIgnoreCase("edit")) {
-            employeesEntity = employeesDao.getById(Long.parseLong(idEmployees));
-            employeesEntity.setEmployeesSnm(employeesSNM);
-            employeesEntity.setEmployeesFloor(employeesFloor);
-            employeesEntity.setEmployeesCitizinship(employeesCitizinship);
-            employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
-            employeesEntity.setEmployeesPassport(employeesPassport);
-            employeesEntity.setPositionsEntity(selPosition);
-            employeesEntity.setEmployeesPhone(employeesPhone);
-            employeesEntity.setEmployeesMail(employeesMail);
-            employeesEntity.setPassword(password);
-            employeesEntity.setSolt(solt);
-            employeesEntity.setStatus(Integer.parseInt(status));
+        try {
 
-            employeesDao.update(employeesEntity);
-        }else {
-            employeesEntity = new EmployeesEntity();
-            employeesEntity.setEmployeesSnm(employeesSNM);
-            employeesEntity.setEmployeesFloor(employeesFloor);
-            employeesEntity.setEmployeesCitizinship(employeesCitizinship);
-            employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
-            employeesEntity.setEmployeesPassport(employeesPassport);
-            employeesEntity.setPositionsEntity(selPosition);
-            employeesEntity.setEmployeesPhone(employeesPhone);
-            employeesEntity.setEmployeesMail(employeesMail);
-            employeesEntity.setPassword(password);
-            employeesEntity.setSolt(solt);
-            employeesEntity.setStatus(Integer.parseInt(status));
-
-            employeesDao.insert(employeesEntity);
+            if (!idEmployees.isEmpty() && mode.equalsIgnoreCase("edit")) {
+                employeesEntity = employeesDao.getById(Long.parseLong(idEmployees));
+                employeesEntity.setEmployeesSnm(employeesSNM);
+                employeesEntity.setEmployeesFloor(employeesFloor);
+                employeesEntity.setEmployeesCitizinship(employeesCitizinship);
+                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
+                employeesEntity.setEmployeesPassport(employeesPassport);
+                employeesEntity.setPositionsEntity(selPosition);
+                employeesEntity.setEmployeesPhone(employeesPhone);
+                employeesEntity.setEmployeesMail(employeesMail);
+                employeesEntity.setPassword(password);
+                employeesEntity.setSolt(solt);
+                employeesEntity.setStatus(Integer.parseInt(status));
+                employeesDao.update(employeesEntity);
+            } else {
+                employeesEntity = new EmployeesEntity();
+                employeesEntity.setEmployeesSnm(employeesSNM);
+                employeesEntity.setEmployeesFloor(employeesFloor);
+                employeesEntity.setEmployeesCitizinship(employeesCitizinship);
+                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
+                employeesEntity.setEmployeesPassport(employeesPassport);
+                employeesEntity.setPositionsEntity(selPosition);
+                employeesEntity.setEmployeesPhone(employeesPhone);
+                employeesEntity.setEmployeesMail(employeesMail);
+                employeesEntity.setPassword(password);
+                employeesEntity.setSolt(solt);
+                employeesEntity.setStatus(Integer.parseInt(status));
+                employeesDao.insert(employeesEntity);
+            }
+        } catch (Exception e) {
+            req.setAttribute("ERROR", "Предыдущее действие завершилось с ошибкой. Данные не были  добавлены");
         }
-
         return PageURL.LIST_EMPLOYEES_ACTION;
     }
 }

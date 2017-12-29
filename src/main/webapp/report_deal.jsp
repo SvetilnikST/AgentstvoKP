@@ -15,19 +15,19 @@
             <label>Дата окончания</label>
             <input type="date" name="lastDate" class="form-control" placeholder="Введите дату">
         </div>
-        <div/>
-        <div  class="form-group" style="float:left; width: 25% ">
-            <button type="submit" class="btn btn-primary">Ок</button>
+        <div class="form-group" style="float:left; width: 25% ">
+            <div style="float:left; width: 25% ">
+                <label>Применить</label>
+                <button type="submit" class="btn btn-primary">Ок</button>
+            </div>
         </div>
-
     </div>
-    <%--<div style="float:left; width:25%">--%>
-    <%--</div>--%>
 </form>
 
 <table class="table table-striped">
     <thead>
     <tr>
+        <th/>
         <th>Дата</th>
         <th>Поставщик</th>
         <th>Заказчик</th>
@@ -38,12 +38,12 @@
         <th>Сумма сделки</th>
         <th>%</th>
         <th></th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
     <c:forEach items="${deal}" var="deal">
         <tr>
+            <th/>
             <td><c:out value="${deal.dateDeal}"/></td>
             <td><c:out value="${deal.clientsEntity1.snmClients}"/></td>
             <td><c:out value="${deal.clientsEntity2.snmClients}"/></td>

@@ -26,24 +26,27 @@ public class SaveLocationCommand implements ActionCommand {
         String locationFlat = req.getParameter("locationFlat");
         String mode = req.getParameter("mode");
 
-        LocationEntity locationEntity = null;
-        StreetsEntity selStreet = streetsDao.getById(Long.parseLong(locationStreet));
-        if( !idLocation.isEmpty() && mode.equalsIgnoreCase("edit")) {
-            locationEntity = locationDao.getById(Long.parseLong(idLocation));
-            locationEntity.setStreetsEntity(selStreet);
-            locationEntity.setLocationHouse(locationHouse);
-            locationEntity.setLocationCorps(locationCorps);
-            locationEntity.setLocationFlat(locationFlat);
-            locationDao.update(locationEntity);
-        }else {
-            locationEntity = new LocationEntity();
-            locationEntity.setStreetsEntity(selStreet);
-            locationEntity.setLocationHouse(locationHouse);
-            locationEntity.setLocationCorps(locationCorps);
-            locationEntity.setLocationFlat(locationFlat);
-            locationDao.insert(locationEntity);
+        try {
+            LocationEntity locationEntity = null;
+            StreetsEntity selStreet = streetsDao.getById(Long.parseLong(locationStreet));
+            if (!idLocation.isEmpty() && mode.equalsIgnoreCase("edit")) {
+                locationEntity = locationDao.getById(Long.parseLong(idLocation));
+                locationEntity.setStreetsEntity(selStreet);
+                locationEntity.setLocationHouse(locationHouse);
+                locationEntity.setLocationCorps(locationCorps);
+                locationEntity.setLocationFlat(locationFlat);
+                locationDao.update(locationEntity);
+            } else {
+                locationEntity = new LocationEntity();
+                locationEntity.setStreetsEntity(selStreet);
+                locationEntity.setLocationHouse(locationHouse);
+                locationEntity.setLocationCorps(locationCorps);
+                locationEntity.setLocationFlat(locationFlat);
+                locationDao.insert(locationEntity);
+            }
+        } catch (Exception e) {
+            req.setAttribute("ERROR", "Предыдущее действие завершилось с ошибкой. Данные не были  добавлены");
         }
-
         return PageURL.LIST_LOCATION_ACTION;
     }
 }

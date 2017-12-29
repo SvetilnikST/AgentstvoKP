@@ -47,43 +47,39 @@ public class SaveDealCommand implements ActionCommand {
         PropertyEntity selProperty = propertyDao.getById(Long.parseLong(dealProperty));
         ParampropertyEntity selPropertyParam = paramPropertyDao.getById(Long.parseLong(dealPropertyParam));
         EmployeesEntity selEmployee = employeesDao.getById(Long.parseLong(dealEmployee));
-
-        if( !idDeal.isEmpty() && mode.equalsIgnoreCase("edit")) {
-            dealEntity = dealDao.getById(Long.parseLong(idDeal));
-            try {
+        try {
+            if (!idDeal.isEmpty() && mode.equalsIgnoreCase("edit")) {
+                dealEntity = dealDao.getById(Long.parseLong(idDeal));
+                try {
+                    dealEntity.setDateDeal(new Date(simpleDateFormat.parse(dateDeal).getTime()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dealEntity.setClientsEntity1(selClients1);
+                dealEntity.setClientsEntity2(selClients2);
+                dealEntity.setViewdealEntity(selViewDeal);
+                dealEntity.setPropertyEntity(selProperty);
+                dealEntity.setParampropertyEntity(selPropertyParam);
+                dealEntity.setEmployeesEntity(selEmployee);
+                dealEntity.setDealSum(Double.parseDouble(dealSum));
+                dealEntity.setDealPercent(Double.parseDouble(dealPercent));
+                dealDao.update(dealEntity);
+            } else {
+                dealEntity = new DealEntity();
                 dealEntity.setDateDeal(new Date(simpleDateFormat.parse(dateDeal).getTime()));
-            } catch (ParseException e) {
-                e.printStackTrace();
+                dealEntity.setClientsEntity1(selClients1);
+                dealEntity.setClientsEntity2(selClients2);
+                dealEntity.setViewdealEntity(selViewDeal);
+                dealEntity.setPropertyEntity(selProperty);
+                dealEntity.setParampropertyEntity(selPropertyParam);
+                dealEntity.setEmployeesEntity(selEmployee);
+                dealEntity.setDealSum(Integer.parseInt(dealSum));
+                dealEntity.setDealPercent(Integer.parseInt(dealPercent));
+                dealDao.insert(dealEntity);
             }
-            dealEntity.setClientsEntity1(selClients1);
-            dealEntity.setClientsEntity2(selClients2);
-            dealEntity.setViewdealEntity(selViewDeal);
-            dealEntity.setPropertyEntity(selProperty);
-            dealEntity.setParampropertyEntity(selPropertyParam);
-            dealEntity.setEmployeesEntity(selEmployee);
-            dealEntity.setDealSum(Double.parseDouble(dealSum));
-            dealEntity.setDealPercent(Double.parseDouble(dealPercent));
-
-            dealDao.update(dealEntity);
-        }else {
-            dealEntity = new DealEntity();
-            try {
-                dealEntity.setDateDeal(new Date(simpleDateFormat.parse(dateDeal).getTime()));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            dealEntity.setClientsEntity1(selClients1);
-            dealEntity.setClientsEntity2(selClients2);
-            dealEntity.setViewdealEntity(selViewDeal);
-            dealEntity.setPropertyEntity(selProperty);
-            dealEntity.setParampropertyEntity(selPropertyParam);
-            dealEntity.setEmployeesEntity(selEmployee);
-            dealEntity.setDealSum(Integer.parseInt(dealSum));
-            dealEntity.setDealPercent(Integer.parseInt(dealPercent));
-
-            dealDao.insert(dealEntity);
+        } catch (Exception e) {
+            req.setAttribute("ERROR", "Предыдущее действие завершилось с ошибкой. Данные не были  добавлены");
         }
-
         return PageURL.LIST_DEAL_ACTION;
     }
 }

@@ -25,24 +25,26 @@ public class SaveParamPropertyCommand implements ActionCommand {
         String mode = req.getParameter("mode");
 
         ParampropertyEntity parampropertyEntity = null;
-        LocationEntity selLocation = locationDao.getById(Long.parseLong(paramPropertyLocation));
-        if( !idParamProperty.isEmpty() && mode.equalsIgnoreCase("edit")) {
-            parampropertyEntity = paramPropertyDao.getById(Long.parseLong(idParamProperty));
-            parampropertyEntity.setParamPropertyArea(Integer.parseInt(paramPropertyArea));
-            parampropertyEntity.setLocationEntity(selLocation);
-            parampropertyEntity.setParamPropertyFloor(Integer.parseInt(paramPropertyFloor));
-            parampropertyEntity.setParamPropertyDescription(paramPropertyDescription);
-            paramPropertyDao.update(parampropertyEntity);
-        }else {
-            parampropertyEntity = new ParampropertyEntity();
-           // parampropertyEntity = paramPropertyDao.getById(Long.parseLong(idParamProperty));
-            parampropertyEntity.setParamPropertyArea(Integer.parseInt(paramPropertyArea));
-            parampropertyEntity.setLocationEntity(selLocation);
-            parampropertyEntity.setParamPropertyFloor(Integer.parseInt(paramPropertyFloor));
-            parampropertyEntity.setParamPropertyDescription(paramPropertyDescription);
-            paramPropertyDao.insert(parampropertyEntity);
+        try {
+            LocationEntity selLocation = locationDao.getById(Long.parseLong(paramPropertyLocation));
+            if (!idParamProperty.isEmpty() && mode.equalsIgnoreCase("edit")) {
+                parampropertyEntity = paramPropertyDao.getById(Long.parseLong(idParamProperty));
+                parampropertyEntity.setParamPropertyArea(Integer.parseInt(paramPropertyArea));
+                parampropertyEntity.setLocationEntity(selLocation);
+                parampropertyEntity.setParamPropertyFloor(Integer.parseInt(paramPropertyFloor));
+                parampropertyEntity.setParamPropertyDescription(paramPropertyDescription);
+                paramPropertyDao.update(parampropertyEntity);
+            } else {
+                parampropertyEntity = new ParampropertyEntity();
+                parampropertyEntity.setParamPropertyArea(Integer.parseInt(paramPropertyArea));
+                parampropertyEntity.setLocationEntity(selLocation);
+                parampropertyEntity.setParamPropertyFloor(Integer.parseInt(paramPropertyFloor));
+                parampropertyEntity.setParamPropertyDescription(paramPropertyDescription);
+                paramPropertyDao.insert(parampropertyEntity);
+            }
+        } catch (Exception e) {
+            req.setAttribute("ERROR", "Предыдущее действие завершилось с ошибкой. Данные не были  добавлены");
         }
-
         return PageURL.LIST_PARAMPOPERTY_ACTION;
     }
 }
