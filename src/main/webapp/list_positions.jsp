@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <jsp:include page="includ/directory.jsp"></jsp:include>
-<br>
 <a href="WorkTaskController?action=add_positions">Добавить</a>
 <table  class="table table-striped">
 	<thead>

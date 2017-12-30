@@ -30,6 +30,15 @@ private EntityManager entityManager = null;
         return result;
     }
 
+    public StreetsEntity getByName(String name) throws IOException {
+        StreetsEntity result = (StreetsEntity) entityManager.createQuery(
+                "select l from StreetsEntity l " +
+                        "where l.streetsName like :name ")
+                .setParameter("name", name)
+                .getSingleResult();
+        return result;
+    }
+
     public void insert(StreetsEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);

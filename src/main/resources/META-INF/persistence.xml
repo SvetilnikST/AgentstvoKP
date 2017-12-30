@@ -1,23 +1,10 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
-    <!--<persistence-unit name="me.svetilnik.dbService.hibernate1">-->
-        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
-        <!--<properties>-->
-            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
-            <!--<property name="hibernate.connection.datasource" value="java:comp/env/jdbc/dbAgentstvo"/>-->
-            <!--<property name="hibernate.show_sql" value="true"/>-->
-            <!--&lt;!&ndash;<property name="hibernate.c3p0.min_size" value="5"/>&ndash;&gt;-->
-            <!--<property name="hibernate.current_session_context_class" value="thread"/>-->
-            <!--<property name="hibernate.hbm2ddl.auto" value="validate" />-->
-        <!--</properties>-->
-    <!--</persistence-unit>-->
     <persistence-unit name="me.svetilnik.dbService.hibernate">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!--<jta-data-source>java:/dbOrder</jta-data-source>-->
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <!--<property name="hibernate.connection.datasource" value="java:comp/env/jdbc/dbOrder"/>-->
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.c3p0.min_size" value="5"/>
             <property name="hibernate.current_session_context_class" value="thread"/>
@@ -25,7 +12,6 @@
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="root" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nariad?useUnicode=yes&amp;characterEncoding=UTF-8"/>-->
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/agentstvo"/>
             <property name="hibernate.connection.useUnicode" value="true"/>
             <property name="hibernate.connection.characterEncoding" value="UTF-8"/>

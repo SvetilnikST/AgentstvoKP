@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+
 public class ClientsDaoImplTest {
     @Test
     public void insert() throws Exception {
@@ -19,10 +20,9 @@ public class ClientsDaoImplTest {
 
     @Test
     public void delete() throws Exception {
-//        Long clientsId = Long.parseLong(req.getParameter("id"));
-//        ClientsDaoImpl dao = new ClientsDaoImpl();
-//        ClientsEntity entity =dao.getById(clientsId);
-//        dao.delete(entity);
+        ClientsDaoImpl dao = new ClientsDaoImpl();
+        ClientsEntity entity = dao.getBySNM("snmClients");
+        dao.delete(entity);
     }
 
 }

@@ -30,6 +30,14 @@ public class LocationDaoImpl {
         return result;
     }
 
+    public LocationEntity getByName(String name) throws IOException {
+        LocationEntity result = (LocationEntity) entityManager.createQuery(
+                "select l from LocationEntity l " +
+                        "where l.locationFlat like :name ")
+                .setParameter("name", name)
+                .getSingleResult();
+        return result;
+    }
     public void insert(LocationEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);

@@ -27,6 +27,15 @@ public class PositionsDaoImpl {
         return result;
     }
 
+    public PositionsEntity getByPosition(String positions) throws IOException {
+        PositionsEntity result = (PositionsEntity) entityManager.createQuery(
+                "select l from PositionsEntity l " +
+                        "where l.positions like :positions ")
+                .setParameter("positions", positions)
+                .getSingleResult();
+        return result;
+    }
+
     public void insert(PositionsEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);

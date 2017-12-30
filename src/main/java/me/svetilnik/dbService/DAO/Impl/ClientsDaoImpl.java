@@ -31,6 +31,14 @@ public class ClientsDaoImpl {
         return result;
     }
 
+    public ClientsEntity getBySNM(String snm) throws IOException {
+        ClientsEntity result = (ClientsEntity) entityManager.createQuery(
+                "select l from ClientsEntity l " +
+                        "where l.snmClients like :snm ")
+                .setParameter("snm", snm)
+                .getSingleResult();
+        return result;
+    }
 
     public void insert(ClientsEntity entity) throws IOException {
         entityManager.getTransaction().begin();

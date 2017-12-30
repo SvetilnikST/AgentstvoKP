@@ -32,6 +32,16 @@ private EntityManager entityManager = null;
         return result;
     }
 
+    public ParampropertyEntity getByDescription(String descript) throws IOException {
+
+        ParampropertyEntity result = (ParampropertyEntity) entityManager.createQuery(
+                "select l from ParampropertyEntity l " +
+                        "where l.paramPropertyDescription like :descript ")
+                .setParameter("descript", descript)
+                .getSingleResult();
+        return result;
+    }
+
     public void insert(ParampropertyEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);

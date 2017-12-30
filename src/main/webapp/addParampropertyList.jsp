@@ -24,7 +24,7 @@
             <div class="form-group"> <label>Площадь</label>
                 <input type="text" name="paramPropertyArea" class="form-control" placeholder="укажите площадь"  value="<c:out value="${paramPropertyEntity.paramPropertyArea}"/>"/> </div>
 
-            <div class="form-group"> <label>Этаж</label>
+            <div class="form-group"> <label>Квартира</label>
                 <input type="text" name="paramPropertyFloor" class="form-control" placeholder="Введите этаж"  value="<c:out value="${paramPropertyEntity.paramPropertyFloor}"/>"/> </div>
 
 

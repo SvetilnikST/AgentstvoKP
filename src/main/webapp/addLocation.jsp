@@ -39,7 +39,7 @@
                         <input type="text" name="locationCorps" class="form-control" placeholder="Введите корпус"
                                value="<c:out value="${locationEntity.locationCorps}"/>"/></div>
 
-                    <div class="form-group"><label>Квартира</label>
+                    <div class="form-group"><label>Этаж</label>
                         <input type="text" name="locationFlat" class="form-control" placeholder="Введите квартиру"
                                value="<c:out value="${locationEntity.locationFlat}"/>"/></div>
 

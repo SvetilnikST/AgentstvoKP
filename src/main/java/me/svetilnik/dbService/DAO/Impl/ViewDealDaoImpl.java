@@ -29,6 +29,15 @@ public class ViewDealDaoImpl {
         return result;
     }
 
+    public ViewdealEntity getByViewDeal(String viewDeal) throws IOException {
+        ViewdealEntity result = (ViewdealEntity) entityManager.createQuery(
+                "select l from ViewdealEntity l " +
+                        "where l.viewDeal like :viewDeal ")
+                .setParameter("viewDeal", viewDeal)
+                .getSingleResult();
+        return result;
+    }
+
     public void insert(ViewdealEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);

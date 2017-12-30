@@ -24,7 +24,7 @@
             <div class="form-group"> <label>Площадь</label>
                 <input type="text" name="paramPropertyArea" class="form-control" placeholder="укажите площадь"  value="<c:out value="${paramPropertyEntity.paramPropertyArea}"/>"/> </div>
 
-            <div class="form-group"> <label>расположение</label>
+            <div class="form-group"> <label>Расположение</label>
             <select name="paramPropertyLocation" class="form-control">
                 <c:forEach items="${locationEntities}" var = "location">
                     <option value="<c:out value="${location.idLocation}"/>"
@@ -41,7 +41,7 @@
             </select>
                 <a href="WorkTaskController?action=add_location">Добавить</a>
 
-            <div class="form-group"> <label>Этаж</label>
+            <div class="form-group"> <label>Квартира</label>
                 <input type="text" name="paramPropertyFloor" class="form-control" placeholder="Введите этаж"  value="<c:out value="${paramPropertyEntity.paramPropertyFloor}"/>"/> </div>
 
                 <div class="form-group"> <label>Описание</label>

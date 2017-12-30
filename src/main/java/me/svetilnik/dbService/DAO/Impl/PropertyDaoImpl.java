@@ -27,6 +27,14 @@ public class PropertyDaoImpl {
         return result;
     }
 
+    public PropertyEntity getByProperty(String property) throws IOException {
+        PropertyEntity result = (PropertyEntity) entityManager.createQuery(
+                "select l from PropertyEntity l " +
+                        "where l.property like :property ")
+                .setParameter("property", property)
+                .getSingleResult();
+        return result;
+    }
     public void insert(PropertyEntity entity) throws IOException {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);

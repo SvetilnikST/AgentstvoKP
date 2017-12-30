@@ -15,7 +15,7 @@ public class DeleteParamPropertyCommand implements ActionCommand {
         ParamPropertyDaoImpl dao = new ParamPropertyDaoImpl();
         ParampropertyEntity entity = dao.getById(paramPropertyId);
         dao.delete(entity);
-        return PageURL.LIST_EMPLOYEES_ACTION;
+        return PageURL.LIST_PARAMPOPERTY_ACTION;
 
     }
 }
