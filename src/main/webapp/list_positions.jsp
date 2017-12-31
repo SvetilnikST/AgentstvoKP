@@ -3,20 +3,24 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <jsp:include page="includ/header.jsp"></jsp:include>
 <jsp:include page="includ/directory.jsp"></jsp:include>
-<a href="WorkTaskController?action=add_positions">Добавить</a>
+
 <table  class="table table-striped">
 	<thead>
 	<tr>
+		<th/>
+		<th><a href="WorkTaskController?action=add_positions">Добавить</a></th>
 		<th>Должности</th>
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach items="${positions}" var = "position">
 		<tr>
+			<td/>
+			<td/>
 			<td><c:out value="${position.positions}"/></td>
-
 			<td><a href = "WorkTaskController?action=edit_positions&id=<c:out value = "${position.idPositions}"/>">Редактировать</a></td>
 			<td><a href = "WorkTaskController?action=delete_positions&id=<c:out value = "${position.idPositions}"/>">Удалить</a></td>
+            <td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/>
 		</tr>
 	</c:forEach>
 
