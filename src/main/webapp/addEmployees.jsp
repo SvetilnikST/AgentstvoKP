@@ -30,8 +30,15 @@
             <div class="form-group"> <label>Граждантство</label>
                 <input type="text" name="employeesCitiziship" class="form-control" placeholder="Введите граждантство"  value="<c:out value="${employeesEntity.employeesCitizinship}"/>"/> </div>
 
-            <div class="form-group"> <label>Дата рождения</label>
-                <input type="text" name="employeesDoB" class="form-control" placeholder="Введите дату рождения"  value="<c:out value="${employeesEntity.employeesDoB}"/>"/> </div>
+            <%--<div class="form-group"> <label>Дата рождения</label>--%>
+                <%--<input type="text" name="employeesDoB" class="form-control" placeholder="Введите дату рождения"  value="<c:out value="${employeesEntity.employeesDoB}"/>"/> </div>--%>
+
+            <div class="form-group"><label>Дата рождения</label>
+                <input type="date" name="employeesDoB" class="form-control" placeholder="Введите дату"
+                       value="<c:out value="${employeesEntity.employeesDoB}"/>"/>
+            </div>
+
+
 
             <div class="form-group"> <label>Паспортные данные</label>
                 <input type="text" name="employeesPassport" class="form-control" placeholder="Введите паспортные данные"  value="<c:out value="${employeesEntity.employeesPassport}"/>"/> </div>

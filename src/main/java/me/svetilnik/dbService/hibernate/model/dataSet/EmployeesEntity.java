@@ -3,6 +3,7 @@ package me.svetilnik.dbService.hibernate.model.dataSet;
 import me.svetilnik.agentstvo.servlet.model.Model;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class EmployeesEntity extends Model {
     private String employeesCitizinship;
 
     @Column(name = "EmployeesDoB", nullable = false)
-    private Timestamp employeesDoB;
+    private Date employeesDoB;
 
     @Column(name = "EmployeesPassport", nullable = true, length = 45)
     private String employeesPassport;
@@ -79,11 +80,11 @@ public class EmployeesEntity extends Model {
         this.employeesCitizinship = employeesCitizinship;
     }
 
-    public Timestamp getEmployeesDoB() {
+    public Date getEmployeesDoB() {
         return employeesDoB;
     }
 
-    public void setEmployeesDoB(Timestamp employeesDoB) {
+    public void setEmployeesDoB(Date employeesDoB) {
         this.employeesDoB = employeesDoB;
     }
 

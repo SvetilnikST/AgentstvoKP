@@ -2,14 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <jsp:include page="includ/header.jsp"></jsp:include>
-<br>
-<a href="WorkTaskController?action=add_clients">Добавить</a>
 
 <c:if test ="${not empty ERROR}">
     <br/>AHTUNGGGGG!!!!!!<br/>
 </c:if>
 <table class="table table-striped">
     <thead>
+    <tr><th><a href="WorkTaskController?action=add_clients">Добавить</a></th>
+    <th>Клиенты</th>
+    </tr>
     <tr>
         <th/>
         <th>Фамилия Имя Отчество</th>

@@ -2,20 +2,15 @@ package me.svetilnik.agentstvo.servlet.controller.command;
 
 import me.svetilnik.agentstvo.servlet.controller.ActionCommand;
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
-import me.svetilnik.dbService.DAO.Impl.EmployeesDaoImpl;
-import me.svetilnik.dbService.DAO.Impl.LocationDaoImpl;
-import me.svetilnik.dbService.DAO.Impl.PositionsDaoImpl;
-import me.svetilnik.dbService.DAO.Impl.StreetsDaoImpl;
-import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;
-import me.svetilnik.dbService.hibernate.model.dataSet.LocationEntity;
-import me.svetilnik.dbService.hibernate.model.dataSet.PositionsEntity;
-import me.svetilnik.dbService.hibernate.model.dataSet.StreetsEntity;
+import me.svetilnik.dbService.DAO.Impl.*;
+import me.svetilnik.dbService.hibernate.model.dataSet.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class SaveEmployeesCommand implements ActionCommand {
     @Override
@@ -35,19 +30,27 @@ public class SaveEmployeesCommand implements ActionCommand {
         String password = req.getParameter("password");
         String solt = req.getParameter("solt");
         String status = req.getParameter("status");
+
         String mode = req.getParameter("mode");
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         EmployeesEntity employeesEntity = null;
         PositionsEntity selPosition = positionsDao.getById(Long.parseLong(position));
 
         try {
-
             if (!idEmployees.isEmpty() && mode.equalsIgnoreCase("edit")) {
                 employeesEntity = employeesDao.getById(Long.parseLong(idEmployees));
                 employeesEntity.setEmployeesSnm(employeesSNM);
                 employeesEntity.setEmployeesFloor(employeesFloor);
                 employeesEntity.setEmployeesCitizinship(employeesCitizinship);
-                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
+//                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
+//                employeesEntity.setEmployeesDoB(new Date(simpleDateFormat.parse(employeesDoB).getTime()));
+                try {
+                    employeesEntity.setEmployeesDoB(new Date(simpleDateFormat.parse(employeesDoB).getTime()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 employeesEntity.setEmployeesPassport(employeesPassport);
                 employeesEntity.setPositionsEntity(selPosition);
                 employeesEntity.setEmployeesPhone(employeesPhone);
@@ -61,7 +64,8 @@ public class SaveEmployeesCommand implements ActionCommand {
                 employeesEntity.setEmployeesSnm(employeesSNM);
                 employeesEntity.setEmployeesFloor(employeesFloor);
                 employeesEntity.setEmployeesCitizinship(employeesCitizinship);
-                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
+//                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
+                employeesEntity.setEmployeesDoB(new Date(simpleDateFormat.parse(employeesDoB).getTime()));
                 employeesEntity.setEmployeesPassport(employeesPassport);
                 employeesEntity.setPositionsEntity(selPosition);
                 employeesEntity.setEmployeesPhone(employeesPhone);

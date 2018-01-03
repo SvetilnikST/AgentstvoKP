@@ -38,7 +38,6 @@ public class SaveDealCommand implements ActionCommand {
         String mode = req.getParameter("mode");
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
         DealEntity dealEntity = null;
 
         ClientsEntity selClients1 = clientsDao.getById(Long.parseLong(dealClient1));
