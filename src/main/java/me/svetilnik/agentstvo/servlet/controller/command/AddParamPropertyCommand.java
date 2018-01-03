@@ -15,9 +15,6 @@ import java.util.List;
 public class AddParamPropertyCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
-//        ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
-
         LocationDaoImpl locationDao = new LocationDaoImpl();
         List<LocationEntity> locationEntities = locationDao.getAll(0,0);
         ParampropertyEntity parampropertyEntity = new ParampropertyEntity();

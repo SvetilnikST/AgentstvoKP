@@ -16,7 +16,6 @@ public class ClientsCommand implements ActionCommand {
 
         ClientsDaoImpl clientsDao = new ClientsDaoImpl();
         List<ClientsEntity> clientsEntities = clientsDao.getAll(0,0);
-
         req.setAttribute("clients", clientsEntities);
         req.setAttribute("title", "список клентов");
         req.setAttribute("markclients","1");

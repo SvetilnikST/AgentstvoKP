@@ -1,9 +1,5 @@
-
-//РАСКОММЕНТИРОВАТЬ!!!!!!!
-// фильтр прошел ли аутентификацию пльзователь
-
-
 package me.svetilnik.agentstvo.servlet.filters;
+
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
 
 import javax.servlet.*;
@@ -13,12 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-///раскоментировать следующую строкуy
+
 @WebFilter("/*")
-public class AuthenticationFilter implements Filter{
+public class AuthenticationFilter implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {}
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -28,16 +25,17 @@ public class AuthenticationFilter implements Filter{
 
         String uri = req.getRequestURI();
         HttpSession session = req.getSession(false);
-        if((session == null || session.getAttribute("role") == null) && !(uri.endsWith("jsp") || uri.endsWith("LoginServlet"))){
+        if ((session == null || session.getAttribute("role") == null) && !(uri.endsWith("jsp") || uri.endsWith("LoginServlet"))) {
             RequestDispatcher view = request.getRequestDispatcher(PageURL.LOGIN_ACTION);
             view.forward(request, response);
-        }else{
+        } else {
             chain.doFilter(req, resp);
         }
     }
 
     @Override
-    public void destroy() {}
+    public void destroy() {
+    }
 }
 
 

@@ -4,6 +4,7 @@ import me.svetilnik.agentstvo.servlet.controller.ActionCommand;
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
 import me.svetilnik.dbService.DAO.Impl.PropertyDaoImpl;
 import me.svetilnik.dbService.hibernate.model.dataSet.PropertyEntity;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -16,16 +17,14 @@ public class EditPropertyCommand implements ActionCommand {
         String idProperty = req.getParameter("id");
         PropertyEntity propertyEntity = null;
 
-        if( !idProperty.isEmpty()) {
+        if (!idProperty.isEmpty()) {
             propertyEntity = propertyDao.getById(Long.parseLong(idProperty));
-        }else {
+        } else {
             propertyEntity = new PropertyEntity();
         }
-
         req.setAttribute("id", propertyEntity.getIdProperty());
         req.setAttribute("property", propertyEntity.getProperty());
         req.setAttribute("mode", "edit");
-
         return PageURL.ADD_PROPERTY;
     }
 }

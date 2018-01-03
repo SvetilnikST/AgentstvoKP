@@ -11,6 +11,7 @@ public class PropertyDaoImpl {
     public PropertyDaoImpl(){
         entityManager = HibernateUtilFactory.getEntityManager();
     }
+
     public List<PropertyEntity> getAll(int offcet, int limit) throws IOException {
         List<PropertyEntity> result = entityManager.createQuery(
                 "from PropertyEntity " )

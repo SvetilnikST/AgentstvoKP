@@ -14,12 +14,10 @@ public class ViewDealCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ViewDealDaoImpl viewdealDao = new ViewDealDaoImpl();
-        List<ViewdealEntity> viewdealEntities = viewdealDao.getAll(0,0);
-
+        List<ViewdealEntity> viewdealEntities = viewdealDao.getAll(0, 0);
         req.setAttribute("viewdeal", viewdealEntities);
         req.setAttribute("title", "Список видов сделок");
         req.setAttribute("markviewdeal", "1");
-
         return PageURL.VIEWDEAL_PAGE;
     }
 }

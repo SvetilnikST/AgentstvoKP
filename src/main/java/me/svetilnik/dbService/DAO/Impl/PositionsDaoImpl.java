@@ -2,18 +2,21 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.PositionsEntity;
+
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
 public class PositionsDaoImpl {
     private EntityManager entityManager = null;
-    public PositionsDaoImpl(){
+
+    public PositionsDaoImpl() {
         entityManager = HibernateUtilFactory.getEntityManager();
     }
+
     public List<PositionsEntity> getAll(int offcet, int limit) throws IOException {
         List<PositionsEntity> result = entityManager.createQuery(
-                "from PositionsEntity " )
+                "from PositionsEntity ")
                 .getResultList();
         return result;
     }

@@ -41,7 +41,6 @@ public class SaveClientsCommand implements ActionCommand {
         } catch (Exception e) {
             req.setAttribute("ERROR", "Предыдущее действие завершилось с ошибкой. Данные не были  добавлены");
         }
-
         return PageURL.LIST_CLIENTS_ACTION;
     }
 }

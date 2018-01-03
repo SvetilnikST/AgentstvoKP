@@ -44,8 +44,6 @@ public class SaveEmployeesCommand implements ActionCommand {
                 employeesEntity.setEmployeesSnm(employeesSNM);
                 employeesEntity.setEmployeesFloor(employeesFloor);
                 employeesEntity.setEmployeesCitizinship(employeesCitizinship);
-//                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
-//                employeesEntity.setEmployeesDoB(new Date(simpleDateFormat.parse(employeesDoB).getTime()));
                 try {
                     employeesEntity.setEmployeesDoB(new Date(simpleDateFormat.parse(employeesDoB).getTime()));
                 } catch (ParseException e) {
@@ -64,7 +62,6 @@ public class SaveEmployeesCommand implements ActionCommand {
                 employeesEntity.setEmployeesSnm(employeesSNM);
                 employeesEntity.setEmployeesFloor(employeesFloor);
                 employeesEntity.setEmployeesCitizinship(employeesCitizinship);
-//                employeesEntity.setEmployeesDoB(Timestamp.valueOf(employeesDoB));
                 employeesEntity.setEmployeesDoB(new Date(simpleDateFormat.parse(employeesDoB).getTime()));
                 employeesEntity.setEmployeesPassport(employeesPassport);
                 employeesEntity.setPositionsEntity(selPosition);

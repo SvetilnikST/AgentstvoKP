@@ -19,12 +19,11 @@ public class EditPositionsCommand implements ActionCommand {
         String idPositions = req.getParameter("id");
         PositionsEntity positionsEntity = null;
 
-        if( !idPositions.isEmpty()) {
+        if (!idPositions.isEmpty()) {
             positionsEntity = positionsDao.getById(Long.parseLong(idPositions));
-        }else {
+        } else {
             positionsEntity = new PositionsEntity();
         }
-
         req.setAttribute("id", positionsEntity.getIdPositions());
         req.setAttribute("positions", positionsEntity.getPositions());
         req.setAttribute("mode", "edit");

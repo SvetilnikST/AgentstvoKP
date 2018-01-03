@@ -17,7 +17,6 @@ public class AddDealCommand implements ActionCommand {
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         HttpSession session = req.getSession(false);
-//        String user_id =session.getAttribute("user_id").toString();
         String user_id = "1";
 
         ClientsDaoImpl clientsDao = new ClientsDaoImpl();

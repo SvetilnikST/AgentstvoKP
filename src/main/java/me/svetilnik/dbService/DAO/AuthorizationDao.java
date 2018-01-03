@@ -1,6 +1,7 @@
 package me.svetilnik.dbService.DAO;
 
 import java.io.IOException;
+
 import me.svetilnik.agentstvo.servlet.model.UserRole;
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;

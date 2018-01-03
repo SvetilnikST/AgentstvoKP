@@ -29,7 +29,6 @@ public class SaveStreetsCommand implements ActionCommand {
                 streetsEntity.setStreetsName(streetsName);
                 streetsDao.insert(streetsEntity);
             }
-
         } catch (Exception e) {
             req.setAttribute("ERROR", "Предыдущее действие завершилось с ошибкой. Данные не были  добавлены");
         }

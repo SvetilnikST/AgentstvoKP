@@ -2,6 +2,7 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.DealEntity;
+
 import javax.persistence.EntityManager;
 import javax.xml.crypto.Data;
 import java.io.IOException;
@@ -11,13 +12,13 @@ import java.util.List;
 public class DealDaoImpl {
     private EntityManager entityManager = null;
 
-    public DealDaoImpl(){
+    public DealDaoImpl() {
         entityManager = HibernateUtilFactory.getEntityManager();
     }
 
     public List<DealEntity> getAll(int offcet, int limit) throws IOException {
         List<DealEntity> result = entityManager.createQuery(
-                "from DealEntity " )
+                "from DealEntity ")
                 .getResultList();
         return result;
     }
@@ -26,8 +27,8 @@ public class DealDaoImpl {
     public List<DealEntity> getAllDate(Date firstDate, Date lastDate, int offcet, int limit) throws IOException {
         List<DealEntity> result = entityManager.createQuery(
                 " select d from DealEntity d " +
-        "where d.dateDeal between :fd and :ld" )
-                .setParameter("fd",firstDate)
+                        "where d.dateDeal between :fd and :ld")
+                .setParameter("fd", firstDate)
                 .setParameter("ld", lastDate)
                 .getResultList();
         return result;

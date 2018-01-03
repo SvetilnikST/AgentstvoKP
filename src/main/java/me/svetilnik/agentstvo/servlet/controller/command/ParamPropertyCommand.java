@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.List;
 
 public class ParamPropertyCommand implements ActionCommand {
-@Override
-public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    @Override
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-    ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
-    List<ParampropertyEntity> parampropertyEntities = paramPropertyDao.getAll(0,0);
+        ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
+        List<ParampropertyEntity> parampropertyEntities = paramPropertyDao.getAll(0, 0);
 
-    req.setAttribute("paramproperty", parampropertyEntities);
-    req.setAttribute("title", "Cписок параметров недвижимости ");
-    req.setAttribute("markparamproperty", "1");
+        req.setAttribute("paramproperty", parampropertyEntities);
+        req.setAttribute("title", "Cписок параметров недвижимости ");
+        req.setAttribute("markparamproperty", "1");
 
-    return PageURL.PARAMPOPERTY_PAGE;
-}
+        return PageURL.PARAMPOPERTY_PAGE;
+    }
 }

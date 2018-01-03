@@ -17,17 +17,17 @@ public class WorkTaskController extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException{
+            throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
 
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(req);
         String page = command.execute(req, resp);
-        if(page!=null){
+        if (page != null) {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
             dispatcher.forward(req, resp);
-          } else {
+        } else {
             resp.sendRedirect(PageURL.ERROR_PAGE);
         }
     }

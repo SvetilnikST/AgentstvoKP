@@ -26,17 +26,15 @@ public class ReportDealCommand implements ActionCommand {
         try {
             Date dateFirstDate = new Date(simpleDateFormat.parse(firstDate).getTime());
             List<DealEntity> dealEntities = dealDao.getAllDate(new Date(simpleDateFormat.parse(firstDate).getTime()),
-                    new Date(simpleDateFormat.parse(lastDate).getTime()),0,0);
+                    new Date(simpleDateFormat.parse(lastDate).getTime()), 0, 0);
             req.setAttribute("deal", dealEntities);
-        } catch (Exception    e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            List<DealEntity> dealEntities = dealDao.getAll(0,0);
+            List<DealEntity> dealEntities = dealDao.getAll(0, 0);
             req.setAttribute("deal", dealEntities);
         }
-
-//        req.setAttribute("deal", dealEntities);
         req.setAttribute("title", "Отчет по сделкам");
-        req.setAttribute("markreportdeal","1");
+        req.setAttribute("markreportdeal", "1");
         return PageURL.REPORT_DEAL_PAGE;
     }
 }

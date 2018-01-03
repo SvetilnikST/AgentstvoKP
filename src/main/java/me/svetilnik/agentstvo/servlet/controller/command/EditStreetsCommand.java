@@ -4,6 +4,7 @@ import me.svetilnik.agentstvo.servlet.controller.ActionCommand;
 import me.svetilnik.agentstvo.servlet.controller.PageURL;
 import me.svetilnik.dbService.DAO.Impl.StreetsDaoImpl;
 import me.svetilnik.dbService.hibernate.model.dataSet.StreetsEntity;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -16,16 +17,14 @@ public class EditStreetsCommand implements ActionCommand {
         String idStreets = req.getParameter("id");
         StreetsEntity streetsEntity = null;
 
-        if( !idStreets.isEmpty()) {
+        if (!idStreets.isEmpty()) {
             streetsEntity = streetsDao.getById(Long.parseLong(idStreets));
-        }else {
+        } else {
             streetsEntity = new StreetsEntity();
         }
-
         req.setAttribute("id", streetsEntity.getIdStreets());
         req.setAttribute("streets", streetsEntity.getStreetsName());
         req.setAttribute("mode", "edit");
-
         return PageURL.ADD_STREETS;
     }
 }

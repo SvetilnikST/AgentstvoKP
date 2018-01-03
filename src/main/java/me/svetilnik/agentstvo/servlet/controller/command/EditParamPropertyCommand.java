@@ -18,14 +18,14 @@ public class EditParamPropertyCommand implements ActionCommand {
         ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
         LocationDaoImpl locationDao = new LocationDaoImpl();
 
-        List<LocationEntity> locationEntities = locationDao.getAll(0,0);
+        List<LocationEntity> locationEntities = locationDao.getAll(0, 0);
 
         String idParamProperty = req.getParameter("id");
         ParampropertyEntity paramPropertyEntity = null;
 
-        if( !idParamProperty.isEmpty()) {
+        if (!idParamProperty.isEmpty()) {
             paramPropertyEntity = paramPropertyDao.getById(Long.parseLong(idParamProperty));
-        }else {
+        } else {
             paramPropertyEntity = new ParampropertyEntity();
         }
 
@@ -33,8 +33,6 @@ public class EditParamPropertyCommand implements ActionCommand {
         req.setAttribute("paramPropertyEntity", paramPropertyEntity);
         req.setAttribute("locationEntities", locationEntities);
         req.setAttribute("curLocation", paramPropertyEntity.getLocationEntity().getIdLocation());
-
-
         req.setAttribute("mode", "edit");
 
         return PageURL.ADD_PARAMPOPERTY;

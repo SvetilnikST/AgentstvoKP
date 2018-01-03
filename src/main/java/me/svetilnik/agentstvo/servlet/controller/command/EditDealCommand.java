@@ -20,25 +20,25 @@ public class EditDealCommand implements ActionCommand {
         PropertyDaoImpl propertyDao = new PropertyDaoImpl();
         EmployeesDaoImpl employeesDao = new EmployeesDaoImpl();
 
-        List<ClientsEntity> clientsEntities = clientsDao.getAll(0,0);
-        List<ViewdealEntity> viewdealEntities = viewDealDao.getAll(0,0);
-        List<PropertyEntity> propertyEntities = propertyDao.getAll(0,0);
-        List<EmployeesEntity> employeesEntities = employeesDao.getAll(0,0);
+        List<ClientsEntity> clientsEntities = clientsDao.getAll(0, 0);
+        List<ViewdealEntity> viewdealEntities = viewDealDao.getAll(0, 0);
+        List<PropertyEntity> propertyEntities = propertyDao.getAll(0, 0);
+        List<EmployeesEntity> employeesEntities = employeesDao.getAll(0, 0);
 
         ParamPropertyDaoImpl paramPropertyDao = new ParamPropertyDaoImpl();
-        List<ParampropertyEntity> parampropertyEntities = paramPropertyDao.getAll(0,0);
+        List<ParampropertyEntity> parampropertyEntities = paramPropertyDao.getAll(0, 0);
 
         String idDeal = req.getParameter("id");
         DealEntity dealEntity = null;
 
-        if( !idDeal.isEmpty()) {
+        if (!idDeal.isEmpty()) {
             dealEntity = dealDao.getById(Long.parseLong(idDeal));
 
-        }else {
+        } else {
             dealEntity = new DealEntity();
         }
         req.setAttribute("id", dealEntity.getIdDeal());
-        req.setAttribute("dealEntity",dealEntity);
+        req.setAttribute("dealEntity", dealEntity);
 
         req.setAttribute("clientsEntities", clientsEntities);
         req.setAttribute("viewDealEntities", viewdealEntities);

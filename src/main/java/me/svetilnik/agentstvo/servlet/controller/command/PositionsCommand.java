@@ -14,7 +14,7 @@ public class PositionsCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PositionsDaoImpl positionsDao = new PositionsDaoImpl();
-        List<PositionsEntity> positionsEntities = positionsDao.getAll(0,0);
+        List<PositionsEntity> positionsEntities = positionsDao.getAll(0, 0);
         req.setAttribute("positions", positionsEntities);
         req.setAttribute("title", "Список должностей");
         req.setAttribute("markpositions", "1");

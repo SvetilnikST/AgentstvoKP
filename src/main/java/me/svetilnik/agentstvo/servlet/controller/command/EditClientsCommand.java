@@ -19,9 +19,9 @@ public class EditClientsCommand implements ActionCommand {
         String idClients = req.getParameter("id");
         ClientsEntity clientsEntity = null;
 
-        if( !idClients.isEmpty()) {
+        if (!idClients.isEmpty()) {
             clientsEntity = clientsDao.getById(Long.parseLong(idClients));
-        }else {
+        } else {
             clientsEntity = new ClientsEntity();
         }
         req.setAttribute("id", clientsEntity.getIdClients());

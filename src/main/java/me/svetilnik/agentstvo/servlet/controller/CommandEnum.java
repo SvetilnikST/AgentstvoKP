@@ -2,7 +2,7 @@ package me.svetilnik.agentstvo.servlet.controller;
 
 import me.svetilnik.agentstvo.servlet.controller.command.*;
 
-public enum  CommandEnum {
+public enum CommandEnum {
     LOGIN {{
         this.command = new LoginCommand();
     }},
@@ -10,7 +10,7 @@ public enum  CommandEnum {
     LOGOUT {{
         this.command = new LogOutCommand();
     }},
-//Команды таблица виды сделок
+    //Команды таблица виды сделок
     VIEWDEAL {{
         this.command = new ViewDealCommand();
     }},
@@ -27,7 +27,7 @@ public enum  CommandEnum {
         this.command = new SaveViewDealCommand();
     }},
 
-//Команды таблица улицы
+    //Команды таблица улицы
     STREETS {{
         this.command = new StreetsCommand();
     }},
@@ -44,7 +44,7 @@ public enum  CommandEnum {
         this.command = new DeleteStreetsCommand();
     }},
 
-//Команды таблица виды недвижимости
+    //Команды таблица виды недвижимости
     PROPERTY {{
         this.command = new PropertyCommand();
     }},
@@ -61,7 +61,7 @@ public enum  CommandEnum {
         this.command = new SavePropertyCommand();
     }},
 
-//Команды таблица должности
+    //Команды таблица должности
     POSITIONS {{
         this.command = new PositionsCommand();
     }},
@@ -78,7 +78,7 @@ public enum  CommandEnum {
         this.command = new SavePositionsCommand();
     }},
 
-//Команды таблица клиентов
+    //Команды таблица клиентов
     CLIENTS {{
         this.command = new ClientsCommand();
     }},
@@ -164,8 +164,7 @@ public enum  CommandEnum {
     }},
     REPORT_DEAL {{
         this.command = new ReportDealCommand();
-    }},
-    ;
+    }},;
 
     ActionCommand command;
 

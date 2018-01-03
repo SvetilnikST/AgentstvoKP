@@ -2,7 +2,7 @@ package me.svetilnik.dbService.DAO.Impl;
 
 import me.svetilnik.dbService.hibernate.HibernateUtilFactory;
 import me.svetilnik.dbService.hibernate.model.dataSet.EmployeesEntity;
-import org.hibernate.Session;
+
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
@@ -10,13 +10,13 @@ import java.util.List;
 public class EmployeesDaoImpl {
     private EntityManager entityManager = null;
 
-    public EmployeesDaoImpl(){
+    public EmployeesDaoImpl() {
         entityManager = HibernateUtilFactory.getEntityManager();
     }
 
     public List<EmployeesEntity> getAll(int offcet, int limit) throws IOException {
         List<EmployeesEntity> result = entityManager.createQuery(
-                "from EmployeesEntity " )
+                "from EmployeesEntity ")
                 .getResultList();
 
         return result;
