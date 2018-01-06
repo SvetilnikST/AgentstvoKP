@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <jsp:include page="includ/header.jsp"></jsp:include>
-<jsp:include page="includ/directoryparam.jsp"></jsp:include>
+
 
 <form name="loginForm" method="POST" action="WorkTaskController">
     <input type="hidden" name="action" value="report_deal"/>

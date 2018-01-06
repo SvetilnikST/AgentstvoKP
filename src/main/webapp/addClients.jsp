@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-6">
-            <h1 class="text-gray-dark">Добавить должность</h1>
+            <h1 class="text-gray-dark">Добавить клиента</h1>
             <form name="loginForm" method="POST" action="WorkTaskController">
                 <input type="hidden" name="action" value="save_clients"/>
                 <input type="hidden" name="mode" value="<c:out value="${mode}"/>"/>
